@@ -15,7 +15,10 @@
         <style type="text/css">
         	body {
         		height: 100vh;
-        		background-color: #2b2b2b;
+        		background-image: url("/WEB-INF/image/login.png");
+        		background-size: cover;
+        		background-position: center; 
+            	background-repeat: no-repeat;
         	}
         </style>
     </head>
@@ -25,7 +28,7 @@
 		        <h1>staff login</h1>
     		</div>
     		<div class="card-body">
-		        <form action="${pageContext.request.contextPath }/off/login" method="post">
+		        <form id="form" action="${pageContext.request.contextPath }/off/login" method="post">
 				    <div class="mb-3 mt-3">
 				        <label for="staffId" class="form-label">StaffId :</label>
 				        <input type="text" class="form-control" id="staffId" name="staffId">
@@ -36,14 +39,35 @@
 				    </div>
 				    <span class="fs-6 text-danger">${msg }</span> 
 				    <br>  
-				    <button type="submit" class="btn btn-warning mb-3 mt-3">
+				    <button id="login-btn" type="button" class="btn btn-warning mb-3 mt-3">
 				    	<span>Login</span>
-				    </button>
-				    <button type="submit" class="btn btn-warning">
-				    	<span>Sign up</span>
 				    </button>
 				 </form>    			
     		</div>
     	</div>
-    </body>    	
+    </body>
+    <script type="text/javascript">
+    	// 로그인 버튼 클릭 시 폼값 유효성 검사
+    	$("#login-btn").click(function(){
+    		// console.log("로그인 버튼 클릭")
+    		// 숫자가 아니면 isNan() or $.isNumeric()
+    		if($.isNumeric($('#staffId').val()) == false) {
+    			alert('id는 숫자만 입력해주세요');
+    		} else if($('#password').val().length < 4) {
+    			alert('password는 4자리 이상을 입력해주세요');
+    		} else {
+    			$('#form').submit();
+    		}
+    	});
+    </script>    	
 </html>
+
+
+
+
+
+
+
+
+
+

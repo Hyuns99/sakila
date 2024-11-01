@@ -18,6 +18,15 @@ import lombok.extern.slf4j.Slf4j;
 public class LoginController {
 	@Autowired
 	private StaffMapper staffMapper;
+	
+	@GetMapping("/on/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate();
+		log.debug("로그아웃 실행");
+		return "redirect:/off/login";
+	}
+	
 	// 로그인 폼
 	@GetMapping("/off/login")
 	public String login() {
@@ -27,7 +36,7 @@ public class LoginController {
 		return "off/login";
 	}
 	
-	// 로그인 액션
+	// 로그인 액션 
 	@PostMapping("/off/login")
 	public String login(Model model, HttpSession session, @RequestParam(name = "staffId", defaultValue = "1") int staffId, 
 			@RequestParam(name = "password") String password) {
