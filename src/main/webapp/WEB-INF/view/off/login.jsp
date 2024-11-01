@@ -13,34 +13,35 @@
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <style type="text/css">
-        	body {
-        		height: 100vh;
-        		background-image: url("/WEB-INF/image/login.png");
-        		background-size: cover;
-        		background-position: center; 
-            	background-repeat: no-repeat;
-        	}
-        </style>
+	        body {
+				height: 100vh;
+			}
+			.card {
+			    width: 30%;
+				box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+			}
+	    </style>
+        
     </head>
     <body class="container d-flex justify-content-center align-items-center">
-    	<div class="card w-50">
+    	<div class="card">
     		<div class="card-header">
-		        <h1>staff login</h1>
+		        <h2 class="fw-semibold">Staff</h2>
     		</div>
     		<div class="card-body">
 		        <form id="form" action="${pageContext.request.contextPath }/off/login" method="post">
 				    <div class="mb-3 mt-3">
-				        <label for="staffId" class="form-label">StaffId :</label>
+				        <label for="staffId" class="form-label fw-semibold">StaffId</label>
 				        <input type="text" class="form-control" id="staffId" name="staffId">
 				    </div>
 				    <div class="mb-3">
-				        <label for="password" class="form-label">Password:</label>
+				        <label for="password" class="form-label fw-semibold">Password</label>
 				        <input type="password" class="form-control" id="password" name="password">
 				    </div>
 				    <span class="fs-6 text-danger">${msg }</span> 
 				    <br>  
-				    <button id="login-btn" type="button" class="btn btn-warning mb-3 mt-3">
-				    	<span>Login</span>
+				    <button id="login-btn" type="button" class="btn btn-warning mb-3 mt-3 w-100">
+				    	<span class="fw-semibold">Login</span>
 				    </button>
 				 </form>    			
     		</div>
