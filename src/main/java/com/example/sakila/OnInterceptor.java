@@ -28,7 +28,6 @@ public class OnInterceptor implements HandlerInterceptor {
 			return false;
 		}
 		
-		
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 	

@@ -26,8 +26,5 @@ public class SakilaApplication implements WebMvcConfigurer {
 		registry.addInterceptor(offInterceptor).addPathPatterns("/off/**");
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}
-	
-	
-	
 
 }
