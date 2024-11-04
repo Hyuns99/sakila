@@ -21,7 +21,7 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-				<img alt="/image/loing.png" src="회원이미지">
+				<img src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">
         		<h2 class="mt-3">${staff.managerName }님 회원정보</h2>
         		<table class="table table-bordered mt-3">
         			<!-- 스탭 정보 -->

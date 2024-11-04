@@ -17,6 +17,7 @@
 	            display: none;
 	        }
 	        a {
+	        	display: inline-block;
 	        	text-decoration: none;
 	        	color: #333;
 	        }
@@ -30,67 +31,70 @@
     </head>
     <body>
     	<div style="height: 100vh;">
-    		<div class="bg-light text-center">
-    			<div>
-    				<h1>
-	    				<a href="${pageContext.request.contextPath}/on/main">HOME</a>    				
-    				</h1>
-    			</div>
-    			<div class="w-100">
-    				<div class="img-box">
-	    				<img src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">    					
-    				</div>
-		            <a href="${pageContext.request.contextPath}/on/staffOne">${loginStaff.userName}님 반갑습니다.</a>
-    			</div>
-    		</div>
-		    <ul class="list-group text-center bg-light">
-		        <!-- 지점메뉴 -->
-		        <li class="list-group-item">
-		            <button type="button" class="btn btn-link w-100" onclick="toggleMenu('branchMenu')">Store 관리</button>
-		            <ul id="branchMenu" class="submenu list-group">
-		                <li class="list-group-item">
-		                    <a href="${pageContext.request.contextPath}/on/branch/add">지점 추가</a>
-		                </li>
-		                <li class="list-group-item">
+		    <div class="bg-light text-center">
+		        <h1>
+		            <a href="${pageContext.request.contextPath}/on/main">HOME</a>
+		        </h1>
+		        <div class="w-100">
+		            <a href="${pageContext.request.contextPath}/on/staffOne">
+			            <img src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">
+			            <br>
+		            	<span>${loginStaff.userName}님 반갑습니다.</span> 
+		            </a>
+		        </div>
+		    </div>
+		
+		    <div class="accordion" id="accordionExample">
+		        <!-- Store 관리 -->
+		        <div class="accordion-item">
+		            <h2 class="accordion-header">
+		                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+		                    Store 관리
+		                </button>
+		            </h2>
+		            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+		                <div class="accordion-body">
+		                    <a href="${pageContext.request.contextPath}/on/branch/add" class="pb-3">지점 추가</a>
+		                    <br>
 		                    <a href="${pageContext.request.contextPath}/on/branch/edit">지점 수정</a>
-		                </li>
-		            </ul>
-		        </li>
+		                </div>
+		            </div>
+		        </div>
 		
-		        <!-- 스탭메뉴 -->
-		        <li class="list-group-item">
-		            <button type="button" class="btn btn-link w-100" onclick="toggleMenu('staffMenu')">Staff 관리</button>
-		            <ul id="staffMenu" class="submenu list-group">
-		                <li class="list-group-item">
-		                    <a href="${pageContext.request.contextPath}/on/staffList">스탭 리스트</a>
-		                </li>
-		                <li class="list-group-item">
+		        <!-- Staff 관리 -->
+		        <div class="accordion-item">
+		            <h2 class="accordion-header">
+		                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		                    Staff 관리
+		                </button>
+		            </h2>
+		            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+		                <div class="accordion-body">
+		                    <a href="${pageContext.request.contextPath}/on/staffList" class="pb-3">스탭 리스트</a>
+		                    <br>
 		                    <a href="${pageContext.request.contextPath}/on/addStaff">스탭 추가</a>
-		                </li>
-		            </ul>
-		        </li>
+		                </div>
+		            </div>
+		        </div>
 		
-		        <!-- 고객메뉴 -->
-		        <li class="list-group-item">
-		            <button type="button" class="btn btn-link w-100" onclick="toggleMenu('customerMenu')">고객 관리</button>
-		            <ul id="customerMenu" class="submenu list-group">
-		                <li class="list-group-item">
-		                    <a href="${pageContext.request.contextPath}/on/customer/add">고객 추가</a>
-		                </li>
-		                <li class="list-group-item">
+		        <!-- 고객 관리 -->
+		        <div class="accordion-item">
+		            <h2 class="accordion-header">
+		                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+		                    고객 관리
+		                </button>
+		            </h2>
+		            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+		                <div class="accordion-body">
+		                    <a href="${pageContext.request.contextPath}/on/customer/add" class="pb-3">고객 추가</a>
+		                    <br>
 		                    <a href="${pageContext.request.contextPath}/on/customer/edit">고객 수정</a>
-		                </li>
-		            </ul>
-		        </li>
-		    </ul>
-		    <a href="${pageContext.request.contextPath}/on/logout">Logout</a>
-		</div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
 		
-		<script>
-		    function toggleMenu(menuId) {
-		        const menu = document.getElementById(menuId);
-		        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-		    }
-		</script>
+		    <a href="${pageContext.request.contextPath}/on/logout" class="btn btn-danger mt-3">Logout</a>
+		</div>
     </body>
 </html>
