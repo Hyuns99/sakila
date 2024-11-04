@@ -12,6 +12,9 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
+        <!-- menu.css -->
+        <link href="${pageContext.request.contextPath}/css/leftMenu.css" rel="stylesheet">
     </head>
     <body class="container-flud">
         <div class="row w-100">
@@ -21,7 +24,7 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h2>Staff 추가</h2>
+        		<h2 class="mt-3">Staff 추가</h2>
         		
         		<h3>주소 검색</h3>
         		<form id="formAddress" action="${pageContext.request.contextPath}/on/addStaff" method="get">
@@ -45,7 +48,7 @@
         		<h3>입력 폼</h3>
         		
         		<form id="addform" action="${pageContext.request.contextPath }/on/addStaff" method="post">
-        			<table class="table" style="width: 80%;">
+        			<table class="table table-bordered mt-3" style="width: 80%;">
         				<tr>
         					<td>storeId</td>
         					<td>

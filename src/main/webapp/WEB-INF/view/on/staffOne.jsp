@@ -12,6 +12,9 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
+        <!-- menu.css -->
+        <link href="${pageContext.request.contextPath}/css/leftMenu.css" rel="stylesheet">
     </head>
     <body class="container-flud">
         <div class="row w-100">
@@ -21,7 +24,8 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-				<img src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">
+        		<h2 class="mt-3">회원 정보</h2>
+				<img class="staffImg" src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">
         		<h2 class="mt-3">${staff.managerName }님 회원정보</h2>
         		<table class="table table-bordered mt-3">
         			<!-- 스탭 정보 -->
@@ -110,7 +114,9 @@
         				<td>${staff.managerName }</td>
         			</tr>
         		</table>
-        		
+        		<div>
+        			<a href="${pageContext.request.contextPath}">정보 수정</a>
+        		</div>
         	</div>
         </div>
     </body>

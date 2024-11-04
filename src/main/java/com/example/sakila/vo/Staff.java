@@ -11,6 +11,7 @@ public class Staff {
 	private String email;
 	private int storeId; // 외래키
 	private int active;
+	private String address;
 	private String userName; // 닉네임
 	private String password;
 	private String lastUpdate;
