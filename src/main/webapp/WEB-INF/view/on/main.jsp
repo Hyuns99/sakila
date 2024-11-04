@@ -7,6 +7,7 @@
         <title>Insert title here</title>
         <!-- bootstrap CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 		<!-- bootstrap JavaScript -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -15,6 +16,7 @@
         
         <!-- menu.css -->
         <link href="${pageContext.request.contextPath}/css/leftMenu.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
     </head>
     <body class="container-flud">
         <div class="row w-100">
@@ -24,7 +26,7 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h2 class="mt-3">main title</h2>
+        		<h2 class="mt-3 fw-semibold">main title</h2>
         	</div>
         </div>
     </body>

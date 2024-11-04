@@ -7,6 +7,7 @@
         <title>Insert title here</title>
         <!-- bootstrap CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 		<!-- bootstrap JavaScript -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -15,6 +16,7 @@
         
         <!-- menu.css -->
         <link href="${pageContext.request.contextPath}/css/leftMenu.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
     </head>
     <body class="container-flud">
         <div class="row w-100">
@@ -24,9 +26,10 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h2 class="mt-3">회원 정보</h2>
+        		<h2 class="mt-3 fw-semibold">Staff</h2>
 				<img class="staffImg" src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">
-        		<h2 class="mt-3">${staff.managerName }님 회원정보</h2>
+				<br>
+        		<span class="mt-3 fs-4">${staff.managerName }님 회원정보</span>
         		<table class="table table-bordered mt-3">
         			<!-- 스탭 정보 -->
         			<tr>
@@ -115,7 +118,10 @@
         			</tr>
         		</table>
         		<div>
-        			<a href="${pageContext.request.contextPath}">정보 수정</a>
+        			<a href="${pageContext.request.contextPath}">password 수정</a>
+        			<a href="${pageContext.request.contextPath}">email 수정</a>
+        			<a href="${pageContext.request.contextPath}">address 수정</a>
+        			<a href="${pageContext.request.contextPath}">store 수정</a>
         		</div>
         	</div>
         </div>

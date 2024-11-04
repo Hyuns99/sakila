@@ -1,23 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<div>
-    <div class="bg-light text-center mt-3">
+<div style="padding: 10px; height: 100vh">
+    <div class="bg-light text-center">
         <h1>
             <a href="${pageContext.request.contextPath}/on/main">HOME</a>
         </h1>
-        <div class="w-100">
+        <div class="w-100 mt-3 mb-3">
             <a href="${pageContext.request.contextPath}/on/staffOne">
 	            <img class="staffImg" src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">
 	            <br>
-            	<span>${loginStaff.userName}님 반갑습니다.</span> 
+            	<span class="fw-semibold">${loginStaff.userName}</span>님 반갑습니다.
             </a>
         </div>
     </div>
 
-    <div class="accordion" id="accordionExample">
+    <div class="accordion " id="accordionExample">
         <!-- Store 관리 -->
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="bi bi-shop me-2"></i>
                     Store 관리
                 </button>
             </h2>
@@ -34,6 +35,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="bi bi-person-gear me-2"></i>
                     Staff 관리
                 </button>
             </h2>
@@ -50,6 +52,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <i class="bi bi-stars me-2"></i>
                     고객 관리
                 </button>
             </h2>

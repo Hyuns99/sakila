@@ -7,6 +7,7 @@
         <title>Insert title here</title>
         <!-- bootstrap CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 		<!-- bootstrap JavaScript -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -15,6 +16,7 @@
         
         <!-- menu.css -->
         <link href="${pageContext.request.contextPath}/css/leftMenu.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
     </head>
     <body class="container-flud">
         <div class="row w-100">
@@ -24,31 +26,34 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h2 class="mt-3">Staff 추가</h2>
+        		<h2 class="mt-3 fw-semibold">Staff 추가</h2>
         		
-        		<h3>주소 검색</h3>
-        		<form id="formAddress" action="${pageContext.request.contextPath}/on/addStaff" method="get">
-					<input type="text" name="searchAddress" id="searchAddress">
-					<button type="button" id="btnAddress">주소검색</button>
-				</form>
-				
-				<div>
-					<h3>주소를 선택하세요</h3>
-					<select id="resultAddress" size="10">
-						<c:forEach var="a" items="${addressList}">
-							<option value="${a.addressId}">
-								(ADDRESS ID : ${a.addressId}) ${a.address}
-							</option>
-						</c:forEach>
-					</select>
-					<br>
-					<button type="button" id="btnAddrSel">주소선택</button>
-				</div>
+        		<div class="w-100 d-flex">
+        			<div class="w-50">
+		        		<span class="fw-semibold fs-5">주소 검색</span>
+		        		<form id="formAddress" action="${pageContext.request.contextPath}/on/addStaff" method="get">
+							<input type="text" name="searchAddress" id="searchAddress">
+							<button type="button" id="btnAddress" class="btn btn-warning">주소검색</button>
+						</form>        			
+        			</div>
+					
+					<div class="w-100" >
+						<span class="fw-semibold fs-5">주소를 선택하세요</span>
+						<select id="resultAddress" size="10"  class="form-select w-100">
+							<c:forEach var="a" items="${addressList}">
+								<option value="${a.addressId}">
+									(ADDRESS ID : ${a.addressId}) ${a.address}
+								</option>
+							</c:forEach>
+						</select>
+						<button type="button" id="btnAddrSel" class="btn btn-warning mt-3">주소선택</button>
+					</div>
         		
-        		<h3>입력 폼</h3>
+        		</div>
         		
+        		<span class="fw-semibold fs-5">입력 폼</span>
         		<form id="addform" action="${pageContext.request.contextPath }/on/addStaff" method="post">
-        			<table class="table table-bordered mt-3" style="width: 80%;">
+        			<table class="table table-bordered mt-3" >
         				<tr>
         					<td>storeId</td>
         					<td>
@@ -93,7 +98,7 @@
         					</td>
         				</tr>
         			</table>
-        			<button id="btnAddStaff" type="button">staff 추가</button>
+        			<button id="btnAddStaff" type="button" class="btn btn-warning">staff 추가</button>
         		</form>
         	</div>
         </div>

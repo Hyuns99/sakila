@@ -1,18 +1,12 @@
 @charset "UTF-8";
-body {
-	height: 100vh;
-}
-a {
-	display: inline-block;
-	text-decoration: none;
-	color: #333;
-}
-img {
-	width: 100%;
-}
+
 .staffImg {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
 	object-fit: cover;
+}
+i {
+	font-size: 1rem;
+	color: #333;
 }
