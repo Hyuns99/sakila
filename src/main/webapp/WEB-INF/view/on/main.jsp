@@ -21,7 +21,7 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h1>main title</h1>
+        		<h2>main title</h2>
         	</div>
         </div>
     </body>

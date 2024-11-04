@@ -15,22 +15,35 @@
         <style type="text/css">
         	.submenu {
 	            display: none;
-	            
 	        }
+	        a {
+	        	text-decoration: none;
+	        	color: #333;
+	        }
+	        img {
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
         </style>
     </head>
     <body>
     	<div style="height: 100vh;">
-		    <ul class="list-group text-center bg-light">
-		        <li class="list-group-item">
-		            <a href="${pageContext.request.contextPath}/on/main">HOME</a>
-		        </li>
-		        <li class="list-group-item">
-		        	<img alt="/image/loing.png" src="회원이미지">
+    		<div class="bg-light text-center">
+    			<div>
+    				<h1>
+	    				<a href="${pageContext.request.contextPath}/on/main">HOME</a>    				
+    				</h1>
+    			</div>
+    			<div class="w-100">
+    				<div class="img-box">
+	    				<img src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">    					
+    				</div>
 		            <a href="${pageContext.request.contextPath}/on/staffOne">${loginStaff.userName}님 반갑습니다.</a>
-		        </li>
-		        
-		
+    			</div>
+    		</div>
+		    <ul class="list-group text-center bg-light">
 		        <!-- 지점메뉴 -->
 		        <li class="list-group-item">
 		            <button type="button" class="btn btn-link w-100" onclick="toggleMenu('branchMenu')">Store 관리</button>
@@ -49,10 +62,10 @@
 		            <button type="button" class="btn btn-link w-100" onclick="toggleMenu('staffMenu')">Staff 관리</button>
 		            <ul id="staffMenu" class="submenu list-group">
 		                <li class="list-group-item">
-		                    <a href="${pageContext.request.contextPath}/on/staff/add">스탭 추가</a>
+		                    <a href="${pageContext.request.contextPath}/on/staffList">스탭 리스트</a>
 		                </li>
 		                <li class="list-group-item">
-		                    <a href="${pageContext.request.contextPath}/on/staff/edit">스탭 수정</a>
+		                    <a href="${pageContext.request.contextPath}/on/addStaff">스탭 추가</a>
 		                </li>
 		            </ul>
 		        </li>
