@@ -6,5 +6,7 @@ import com.example.sakila.vo.Actor;
 
 @Mapper
 public interface ActorMapper {
+	int selectActorCount();
+	
 	int insertActor(Actor actor);
 }

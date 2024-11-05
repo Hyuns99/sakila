@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<div style="padding: 10px; height: 100vh">
+<div style="padding: 10px 0px 10px 10px; height: 100vh">
     <div class="bg-light text-center">
         <h1>
             <a href="${pageContext.request.contextPath}/on/main">HOME</a>

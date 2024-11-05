@@ -22,6 +22,15 @@ public class ActorService {
 	@Autowired ActorMapper actorMapper;
 	@Autowired ActorFileMapper actorFileMapper;
 	
+	public int getListPage(int rowPerPage) {
+		int count = actorMapper.selectActorCount();
+		int lastPage = count / rowPerPage;
+		if(lastPage % rowPerPage != 0) {
+			lastPage++;
+		}
+		return lastPage;
+	}
+	
 	public void addActor(ActorForm actorForm, String path) {
 		 Actor actor = new Actor();
 		 actor.setFirstName(actorForm.getFirstName());
