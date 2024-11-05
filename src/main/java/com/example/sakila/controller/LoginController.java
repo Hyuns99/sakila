@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.sakila.mapper.StaffMapper;
+import com.example.sakila.service.StaffService;
 import com.example.sakila.vo.Staff;
 
 import jakarta.servlet.http.HttpSession;
@@ -16,6 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class LoginController {
+	@Autowired
+	private StaffService staffService;
 	@Autowired
 	private StaffMapper staffMapper;
 	
@@ -47,7 +50,7 @@ public class LoginController {
 			paramStaff.setStaffId(staffId);
 			paramStaff.setPassword(password);
 
-			Staff loginStaff = staffMapper.login(paramStaff);
+			Staff loginStaff = staffService.login(paramStaff);
 			if(loginStaff == null) {
 				model.addAttribute("msg", "로그인에 실패했습니다");
 				return "/off/login";

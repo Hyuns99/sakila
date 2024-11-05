@@ -24,9 +24,9 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <a href="${pageContext.request.contextPath}/on/branch/add" class="pb-3">지점 추가</a>
+                    <a href="${pageContext.request.contextPath}/on/branch/add" class="pb-3">Store 추가</a>
                     <br>
-                    <a href="${pageContext.request.contextPath}/on/branch/edit">지점 수정</a>
+                    <a href="${pageContext.request.contextPath}/on/branch/edit">Store 수정</a>
                 </div>
             </div>
         </div>
@@ -41,9 +41,9 @@
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <a href="${pageContext.request.contextPath}/on/staffList" class="pb-3">스탭 리스트</a>
+                    <a href="${pageContext.request.contextPath}/on/staffList" class="pb-3">Staff 리스트</a>
                     <br>
-                    <a href="${pageContext.request.contextPath}/on/addStaff">스탭 추가</a>
+                    <a href="${pageContext.request.contextPath}/on/addStaff">Staff 추가</a>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <i class="bi bi-stars me-2"></i>
+                    <i class="bi bi-people me-2"></i>
                     고객 관리
                 </button>
             </h2>
@@ -61,6 +61,23 @@
                     <a href="${pageContext.request.contextPath}/on/customer/add" class="pb-3">고객 추가</a>
                     <br>
                     <a href="${pageContext.request.contextPath}/on/customer/edit">고객 수정</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 배우 관리 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <i class="bi bi-stars me-2"></i>
+                    Actor 관리
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <a href="${pageContext.request.contextPath}/on/actorList" class="pb-3">Actor 리스트</a>
+                    <br>
+                    <a href="${pageContext.request.contextPath}/on/addActor">Actor 추가</a>
                 </div>
             </div>
         </div>
