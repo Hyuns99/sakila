@@ -11,5 +11,5 @@ public class ActorFile {
 	private String ext;
 	private String type;
 	private long size;
-	private String createdate;
+	private String createDate;
 }

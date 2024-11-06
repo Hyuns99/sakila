@@ -10,9 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.sakila.service.ActorFileService;
 import com.example.sakila.service.ActorService;
+import com.example.sakila.service.FilmService;
 import com.example.sakila.vo.Actor;
+import com.example.sakila.vo.ActorFile;
 import com.example.sakila.vo.ActorForm;
+import com.example.sakila.vo.Film;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
@@ -25,17 +29,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ActorController {
 	@Autowired ActorService actorService;
+	@Autowired ActorFileService actorFileService;
+	@Autowired FilmService filmService;
+	
+	@GetMapping("/on/actorOne") 
+	public String actorOne(Model model 
+							,@RequestParam int actorId) {
+		Actor actor = actorService.getActorOne(actorId);
+		List<ActorFile> actorFileList = actorFileService.getActorFileListByActor(actorId);
+		List<Film> filmList = filmService.getFilmTitleListByActor(actorId);
+		log.debug(actor.toString());
+		log.debug(actorFileList.toString());
+		log.debug(filmList.toString());
+		
+		return "on/actorOne";
+	}
 	
 	@GetMapping("/on/actorList")
 	public String actorList(Model model, @RequestParam(defaultValue = "1") int currentPage,
-							@RequestParam(defaultValue = "10") int rowPerPage) {
+							@RequestParam(defaultValue = "10") int rowPerPage,
+							@RequestParam(required = false) String searchWord) {
 		
-		Map<String, Object> map = new HashMap<>();
-		int beginRow = (currentPage - 1) * rowPerPage;
-		map.put("beginRow", beginRow);
-		map.put("rowPerPage", rowPerPage);
+		log.debug("searchWord : " + searchWord);
 		
-		int lastPage = actorService.getListPage(rowPerPage);
+		// int lastPage actorService.getTotalcount(rowPerPage, searchWord);
+		List<Actor> actorList = actorService.getActorList(currentPage, rowPerPage, searchWord);
+		model.addAttribute("actorList", actorList);
+		
+		int lastPage = actorService.getListPage(rowPerPage, searchWord);
 		
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("lastPage", lastPage);

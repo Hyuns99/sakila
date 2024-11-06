@@ -2,7 +2,9 @@ package com.example.sakila.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.sakila.mapper.ActorFileMapper;
 import com.example.sakila.mapper.ActorMapper;
+import com.example.sakila.mapper.FilmMapper;
 import com.example.sakila.vo.Actor;
 import com.example.sakila.vo.ActorFile;
 import com.example.sakila.vo.ActorForm;
@@ -21,8 +24,24 @@ import com.example.sakila.vo.ActorForm;
 public class ActorService {
 	@Autowired ActorMapper actorMapper;
 	@Autowired ActorFileMapper actorFileMapper;
+	@Autowired FilmMapper filmMapper;
 	
-	public int getListPage(int rowPerPage) {
+	public Actor getActorOne(int actorId) {
+		return actorMapper.selectActorOne(actorId);
+	}
+	
+	public List<Actor> getActorList(int currentPage, int rowPerPage, String searchWord) {
+		Map<String, Object> paramMap = new HashMap<>();
+		int beginRow = (currentPage - 1) * rowPerPage;
+		
+		paramMap.put("beginRow", beginRow);
+		paramMap.put("rowPerPage", rowPerPage);
+		paramMap.put("searchWord", searchWord);
+		
+		return actorMapper.selectActorList(paramMap);
+	}
+	
+	public int getListPage(int rowPerPage, String searchWord) {
 		int count = actorMapper.selectActorCount();
 		int lastPage = count / rowPerPage;
 		if(lastPage % rowPerPage != 0) {
@@ -71,4 +90,5 @@ public class ActorService {
 			 }
 		 }
 	}
+
 }
