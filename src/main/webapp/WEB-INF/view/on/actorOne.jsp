@@ -47,40 +47,47 @@
         			</tr>
         		</table>
         		<div>
-        			<a href="">actor 수정</a>
+        			<a href="" class="btn btn-warning">actor 수정</a>
         		</div>
         		<!-- actor file -->
         		<table class="table table-bordered mt-3">
-        			<tr>
-        				<td>image</td>
-        				<td>type</td>
-        				<td>size</td>
-        				<td>createDate</td>
-        				<td>삭제</td>
-        			</tr>
-        			<c:forEach var="af" items="${actorFileList }">
-        				<tr>
-        					<td>
-        						<img alt="fileImg" src="${pageContext.request.contextPath }/upload/${af.filename}.${af.ext}"> 
-        					</td>
-        					<td>${af.type }</td>
-        					<td>${af.size} Byte</td>
-        					<td>${af.createDate}</td>
-        					<td>
-        						<a href="">삭제</a>
-        					</td>
-        				</tr>
-        			</c:forEach>
-        		</table>
+				    <tr>
+				        <td>Image</td>
+				        <td>Type</td>
+				        <td>Size</td>
+				        <td>Create Date</td>
+				        <td>Delete</td>
+				    </tr>
+				    <c:forEach var="af" items="${actorFileList}">
+				        <tr>
+				            <td>
+				                <c:choose>
+				                    <c:when test="${af.FilmId == null}">
+				                        첨부된 파일이 없습니다
+				                    </c:when>
+				                    <c:otherwise>
+				                        <img alt="fileImg" src="${pageContext.request.contextPath}/upload/${af.filename}.${af.ext}">
+				                    </c:otherwise>
+				                </c:choose>
+				            </td>
+				            <td>${af.type}</td>
+				            <td>${af.size} Byte</td>
+				            <td>${af.createDate}</td>
+				            <td>
+				                <a href="${pageContext.request.contextPath}/deleteFile?FilmId=${af.FilmId}" class="btn btn-warning">삭제</a>
+				            </td>
+				        </tr>
+				    </c:forEach>
+				</table>
         		<div>
-        			<a href="">파일 추가</a>
+        			<a href="" class="btn btn-warning">파일 추가</a>
         		</div>
         		
         		<!-- film -->
         		<div>
-        			<span class="fw-semibold fs-5">출연작품</span>
+        			<span class="fw-semibold fs-5 d-block mt-3 mb-3">출연작품</span>
         			<c:forEach var="f" items="${filmList }">
-        				<a href="${pageContext.request.contextPath }/on/filmOne?filmId=${f.filmId}">${f.title }</a>&nbsp;
+        				<a href="${pageContext.request.contextPath }/on/filmOne?filmId=${f.filmId}">${f.title },</a>&nbsp;
         			</c:forEach>
         		</div>
         	</div>
