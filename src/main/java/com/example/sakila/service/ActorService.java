@@ -26,6 +26,10 @@ public class ActorService {
 	@Autowired ActorFileMapper actorFileMapper;
 	@Autowired FilmMapper filmMapper;
 	
+	public List<Actor> getActorListByFilm(int filmId) {
+		return actorMapper.selectActorListByFilm(filmId);
+	}
+	
 	public Actor getActorOne(int actorId) {
 		return actorMapper.selectActorOne(actorId);
 	}
@@ -55,23 +59,24 @@ public class ActorService {
 		 actor.setFirstName(actorForm.getFirstName());
 		 actor.setLastName(actorForm.getLastName());
 		 
-		 int row = actorMapper.insertActor(actor); // actorId = 0
-		 // mybatis selectkey값
-		 int actorId = actor.getActorId(); // actorId = 1
+		 int row1 = actorMapper.insertActor(actor);
+		 // mybatis selectKey의 값
+		 int actorId = actor.getActorId();
 		 
-		 if(row == 1 && actorForm.getActorFile() !=null) {
-			 // 파일 입력, actorFile 입력
+		 if(row1 == 1 && actorForm.getActorFile() != null) {
+			 // 파일 입력, ActorFile 입력
 			 List<MultipartFile> list = actorForm.getActorFile();
 			 for(MultipartFile mf : list) {
 				 ActorFile actorFile = new ActorFile();
+				 
 				 actorFile.setActorId(actorId);
 				 actorFile.setType(mf.getContentType());
 				 actorFile.setSize(mf.getSize());
 				 String filename = UUID.randomUUID().toString().replace("-", "");
-				 actorFile.setFilename(UUID.randomUUID().toString().replace("-", ""));
+				 actorFile.setFilename(filename);
 				 int dotIdx = mf.getOriginalFilename().lastIndexOf(".");
 				 String originname = mf.getOriginalFilename().substring(0, dotIdx);
-				 String ext = mf.getOriginalFilename().substring(dotIdx + 1);
+				 String ext = mf.getOriginalFilename().substring(dotIdx+1);
 				 actorFile.setOriginname(originname);
 				 actorFile.setExt(ext);
 				 
@@ -79,13 +84,14 @@ public class ActorService {
 				 if(row2 == 1) {
 					 // 물리적 파일 저장
 					 try {
-						mf.transferTo(new File("path" + filename + "." + ext));
-					} catch (Exception e) {
-						// 예외 발생하고 예외처리 하지않아야지 @Transactional 작동한다 
-						// RuntimeException을 인위적으로 발생
+						mf.transferTo(new File(path + filename +"."+ ext));
+					 } catch (Exception e) {
+						// TODO Auto-generated catch block
 						e.printStackTrace();
+						// 예외 발생하고 예외처리 하지 않아야지 @Transactional 작동한다
+						// so... RuntimeException을 인위적으로 발생
 						throw new RuntimeException();
-					} // 예외 처리
+					 }	 
 				 }
 			 }
 		 }

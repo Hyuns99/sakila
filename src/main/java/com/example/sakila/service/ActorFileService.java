@@ -16,6 +16,7 @@ import com.example.sakila.vo.ActorFile;
 public class ActorFileService {
 	@Autowired ActorFileMapper actorFileMapper;
 	
+	// /on/actorOne
 	public List<ActorFile> getActorFileListByActor(int actorId) {
 		return actorFileMapper.selectActorFileListByActor(actorId);
 	}

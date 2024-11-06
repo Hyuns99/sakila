@@ -42,6 +42,10 @@ public class ActorController {
 		log.debug(actorFileList.toString());
 		log.debug(filmList.toString());
 		
+		model.addAttribute("actor",actor);
+		model.addAttribute("actorFileList",actorFileList);
+		model.addAttribute("filmList",filmList);
+		
 		return "on/actorOne";
 	}
 	
@@ -65,20 +69,15 @@ public class ActorController {
 	}
 	
 	@PostMapping("/on/addActor")
-	public String addActor(HttpSession session ,ActorForm actorForm) { // input type="file"
-		/*
-		log.debug(actorForm.getFirstName());
-		log.debug(actorForm.getLastName());
-		log.debug("actorFile : " + actorForm.getActorFile().size());
-		if(actorForm.getActorFile() != null) {
-			log.debug("actorFile : " + actorForm.getActorFile().size());
-		}
-		*/
-		String path = session.getServletContext().getRealPath("/upload");
+	public String addActor(HttpSession session, ActorForm actorForm) { // input type="file"
+		String path = session.getServletContext().getRealPath("/upload/");
+		log.debug(path);
+		
 		actorService.addActor(actorForm, path);
 		
 		return "redirect:/on/actorList";
 	}
+	
 	@GetMapping("/on/addActor")
 	public String addActor() {
 		
