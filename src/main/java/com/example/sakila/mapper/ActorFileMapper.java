@@ -10,6 +10,7 @@ import com.example.sakila.vo.ActorFile;
 @Mapper
 public interface ActorFileMapper {
 	
+	// actorOne
 	List<ActorFile> selectActorFileListByActor(int actorId);
 	
 	int insertActorFile(ActorFile actorFile);

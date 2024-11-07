@@ -27,16 +27,69 @@
         	<div class="col-sm-10">
         		<!-- Main -->
         		<h2 class="mt-3 fw-semibold">FilmOne</h2>
-        		<div>
-        			${film }
-        		</div>
+	        		<table class="table table-bordered mt-3">
+	        			<tr>
+	        				<td>filmId</td>
+	        				<td>${film.filmId }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>title</td>
+	        				<td>${film.title }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>length</td>
+	        				<td>${film.length }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>releaseYear</td>
+	        				<td>${film.releaseYear }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>language</td>
+	        				<td>${film.language }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>rentalRate</td>
+	        				<td>${film.rentalRate }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>rentalDuration</td>
+	        				<td>${film.rentalDuration }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>specialFeatures</td>
+	        				<td>${film.specialFeatures }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>rating</td>
+	        				<td>${film.rating }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>description</td>
+	        				<td>${film.description }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>replacementCost</td>
+	        				<td>${film.replacementCost }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>lastUpdate</td>
+	        				<td>${film.lastUpdate }</td>
+	        			</tr>
+	        			<tr>
+	        				<td>수정</td>	
+	        				<td>
+								<a href="${pageContext.request.contextPath }/on/" class="btn btn-warning">수정</a>
+							</td>        				
+	        			</tr>
+	        		</table>        			
         		
         		<div>
         			<span class="fw-semibold fs-5">출연배우</span>
         			<div>
         				<c:forEach var="a" items="${actorList }">
         					<div>
-		        				<a href="${pageContext.request.contextPath }/on/actorOne?actorId=${a.actorId}">
+		        				<a href="${pageContext.request.contextPath }/on/actorOne?actorId=${a.actorId}" >
 		        					${a.firstName } ${a.lastName }
 		        				</a>        						        					
         					</div>

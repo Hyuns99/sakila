@@ -47,7 +47,10 @@
         			</tr>
         		</table>
         		<div>
-        			<a href="" class="btn btn-warning">actor 수정</a>
+        			<!-- 과제 : 입력폼, 액션, 서비스, 맵퍼 -->
+        			<a href="${pageContext.request.contextPath }/on/modifyActor" class="btn btn-warning">
+        				actor 수정 
+        			</a>
         		</div>
         		<!-- actor file -->
         		<table class="table table-bordered mt-3">
@@ -62,11 +65,11 @@
 				        <tr>
 				            <td>
 				                <c:choose>
-				                    <c:when test="${af.FilmId == null}">
+				                    <c:when test="${af.actorFileId == null}">
 				                        첨부된 파일이 없습니다
 				                    </c:when>
 				                    <c:otherwise>
-				                        <img alt="fileImg" src="${pageContext.request.contextPath}/upload/${af.filename}.${af.ext}">
+				                        <img class="w-25" alt="fileImg" src="${pageContext.request.contextPath}/upload/${af.filename}.${af.ext}">
 				                    </c:otherwise>
 				                </c:choose>
 				            </td>
@@ -74,13 +77,13 @@
 				            <td>${af.size} Byte</td>
 				            <td>${af.createDate}</td>
 				            <td>
-				                <a href="${pageContext.request.contextPath}/deleteFile?FilmId=${af.FilmId}" class="btn btn-warning">삭제</a>
+				                <a href="${pageContext.request.contextPath}/on/delect" class="btn btn-warning">삭제</a>
 				            </td>
 				        </tr>
 				    </c:forEach>
 				</table>
         		<div>
-        			<a href="" class="btn btn-warning">파일 추가</a>
+        			<a href="${pageContext.request.contextPath}/on/addActorFile?actorId=${actor.actorId}" class="btn btn-warning">파일 추가</a>
         		</div>
         		
         		<!-- film -->
