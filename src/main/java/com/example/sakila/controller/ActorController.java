@@ -69,7 +69,20 @@ public class ActorController {
 	}
 	
 	@PostMapping("/on/addActor")
-	public String addActor(HttpSession session, ActorForm actorForm) { // input type="file"
+	public String addActor(Model model, HttpSession session, ActorForm actorForm) { // input type="file"
+		List<MultipartFile> list = actorForm.getActorFile();
+		
+		if(list != null && list.size() != 0) { // 첨부된 파일이 있다면
+			for(MultipartFile f : list) { // 이미지파일은 *.jpg, *.png 가능
+				if(f.getContentType().equals("image/jpeg") == false &&
+						f.getContentType().equals("image/png") == false) {
+					model.addAttribute("msg","이미지파일만 입력이 가능합니다");
+					return "on/addActor";
+				}
+			}			
+		}
+		
+		
 		String path = session.getServletContext().getRealPath("/upload/");
 		log.debug(path);
 		

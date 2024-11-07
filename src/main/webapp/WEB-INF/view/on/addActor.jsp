@@ -27,6 +27,7 @@
         	<div class="col-sm-10">
         		<!-- Main -->
         		<h2 class="mt-3 fw-semibold">Actor 추가</h2>
+        		<span class="mt-3 fw-semibold d-block text-danger">${msg }</span>
         		<!-- 파일업로드을 위해서는 form에서 method가 post가 돼야되고 enctype="multipart/form-data"를 추가해야된다 -->
         		<form id="formActor" action="${pageContext.request.contextPath}/on/addActor" method="post" enctype="multipart/form-data">
 	        		<table class="table table-bordered mt-3">

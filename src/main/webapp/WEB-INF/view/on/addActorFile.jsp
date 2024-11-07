@@ -27,6 +27,7 @@
         	<div class="col-sm-10">
         		<!-- Main -->
         		<h2 class="mt-3 fw-semibold">Actor File 추가</h2>
+        		<span class="mt-3 fw-semibold d-block text-danger">${msg }</span>
         		<form action="${pageContext.request.contextPath }/on/addActorFile" method="post" 
         			id="formAddActorFile" enctype="multipart/form-data">
         			<table class="table table-bordered mt-3">
