@@ -61,7 +61,7 @@
 				        </c:if>
 				
 				        <!-- Page Numbers -->
-				        <c:forEach var="page" begin="1" end="${lastPage}">
+				        <c:forEach var="page" begin="${startPage }" end="${endPage}">
 				            <li class="page-item ${page == currentPage ? 'active' : ''}">
 				                <a class="page-link" href="${pageContext.request.contextPath}/on/actorList?currentPage=${page}">
 				                    ${page}

@@ -29,6 +29,7 @@
         		<h2 class="mt-3 fw-semibold">영화 추가</h2>
         		<form id="formFilm" action="${pageContext.request.contextPath }/on/addFilm" method="post">
         			<table class="table table-bordered mt-3">
+        				<!-- 필수항목 -->
         				<tr>
         					<td>title</td>
         					<td>
@@ -36,22 +37,9 @@
         					</td>
         				</tr>
         				<tr>
-        					<td>description</td>
-        					<td>
-        						<!-- textarea -->
-        						<textarea rows="3" cols="50" id="description" name="description"></textarea>
-        					</td>
-        				</tr>
-        				<tr>
-        					<td>releaseYear</td>
-        					<td>
-        						<input type="number" id="releaseYear" name="releaseYear">
-        					</td>
-        				</tr>
-        				<tr>
         					<td>languageId</td>
         					<td>
-        						<select id="languageId" name="languageId">
+        						<select id="languageId" name="languageId" class="form-select ">
         							<option value="">언어 선택</option>
         							<c:forEach var="la" items="${languageList }">
         								<option value="${la.languageId }">${la.name }</option>
@@ -59,17 +47,7 @@
         						</select>
         					</td>
         				</tr>
-        				<tr>
-        					<td>originalLanguageId</td>
-        					<td>
-        						<select id="originalLanguageId" name="originalLanguageId">
-        							<option value="">오리지널 언어 선택</option>
-        							<c:forEach var="la" items="${languageList }">
-        								<option value="${la.languageId }">${la.name }</option>
-        							</c:forEach>
-        						</select>
-        					</td>
-        				</tr>
+        				
         				<tr>
         					<td>rentalDuration</td>
         					<td>
@@ -84,12 +62,7 @@
         						<input type="number" id="rentalRate" name="rentalRate" value="4.99">
         					</td>
         				</tr>
-        				<tr>
-        					<td>length</td>
-        					<td>
-        						<input type="number" id="length" name="length" value="0">분
-        					</td>
-        				</tr>
+        				
         				<tr>
         					<td>replacementCost</td>
         					<td>
@@ -102,11 +75,43 @@
         					<td>
         						<!-- radio -->
         						<!-- eunm(G,PG,PG-13,R,NC-17)타입, DB기본값 : "G" -->
-        						<input type="radio" name="rating" id="rating" class="rating " value="G"> G
-        						<input type="radio" name="rating" id="rating" class="rating" value="PG"> PG
-        						<input type="radio" name="rating" id="rating" class="rating" value="PG-13"> PG-13
-        						<input type="radio" name="rating" id="rating" class="rating" value="R"> R
-        						<input type="radio" name="rating" id="rating" class="rating" value="NC-17"> NC-17
+        						<input type="radio" name="rating" id="rating" class="rating " value="G">
+        						<label>G</label>
+        						<input type="radio" name="rating" class="rating" value="PG"> PG
+        						<input type="radio" name="rating" class="rating" value="PG-13"> PG-13
+        						<input type="radio" name="rating" class="rating" value="R"> R
+        						<input type="radio" name="rating" class="rating" value="NC-17"> NC-17
+        					</td>
+        				</tr>
+        				<!-- 선택적 항목 -->
+        				<tr>
+        					<td>description</td>
+        					<td>
+        						<!-- textarea -->
+        						<textarea rows="3" cols="50" id="description" name="description"></textarea>
+        					</td>
+        				</tr>
+        				<tr>
+        					<td>releaseYear</td>
+        					<td>
+        						<input type="number" id="releaseYear" name="releaseYear">
+        					</td>
+        				</tr>
+        				<tr>
+        					<td>originalLanguageId</td>
+        					<td>
+        						<select id="originalLanguageId" name="originalLanguageId"  class="form-select ">
+        							<option value="">오리지널 언어 선택</option>
+        							<c:forEach var="la" items="${languageList }">
+        								<option value="${la.languageId }">${la.name }</option>
+        							</c:forEach>
+        						</select>
+        					</td>
+        				</tr>
+        				<tr>
+        					<td>length</td>
+        					<td>
+        						<input type="number" id="length" name="length" value="0">분
         					</td>
         				</tr>
         				<tr>
@@ -128,7 +133,23 @@
     </body>
     <script type="text/javascript">
     	$('#btnAddFilm').click(function() {
-    		$('#formFilm').submit();
+    		// 폼 유효성 검사(description,releaseYear,originalLanguageId, length, specialFeatures 제외)
+    		if($('#title').val() == '') {
+    			alert('title을 입력해주세요');
+    		} else if($('#languageId').val() == '') {
+    			alert('languageId을 입력해주세요');
+    		} else if($.isNumeric($('#rentalDuration').val()) == false) {
+    			alert('rentalDuration 숫자를 입력해주세요');
+    		} else if($.isNumeric($('#rentalRate').val()) == false) {
+    			alert('rentalRate 숫자를 입력해주세요');
+    		}  else if($.isNumeric($('#replacementCost').val()) == false) {
+    			alert('replacementCost 숫자를 입력해주세요');
+    		} else if($('.rating:checked').length == 0) {
+    			alert('rating을 선택해주세요');
+    		} else {
+	    		$('#formFilm').submit();    			
+    		} 
+    		
     	})
     </script>
 </html>

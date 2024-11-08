@@ -27,7 +27,10 @@
         	<div class="col-sm-10">
         		<!-- Main -->
         		<h2 class="mt-3 fw-semibold">Actor 추가</h2>
+        		
+        		<!-- 첨부한 파일이 이미지파일이 아닐경우 에러메세지 출력 -->
         		<span class="mt-3 fw-semibold d-block text-danger">${msg }</span>
+        		
         		<!-- 파일업로드을 위해서는 form에서 method가 post가 돼야되고 enctype="multipart/form-data"를 추가해야된다 -->
         		<form id="formActor" action="${pageContext.request.contextPath}/on/addActor" method="post" enctype="multipart/form-data">
 	        		<table class="table table-bordered mt-3">
@@ -75,7 +78,7 @@
     		if($('.actorFile').last().val() == '') {
     			alert('첨부되지 않은 파일이 있습니다.');
     		} else {
-    			let html = '<input type="file" name="actorFile" class="actorFile mt-3 d-block">';
+    			let html = '<input type="file" name="actorFile" class="upload-input actorFile mt-3 d-block">';
 	    		$('#fileDiv').append(html);
     		}
 	   		 /* 자바스크립트 API

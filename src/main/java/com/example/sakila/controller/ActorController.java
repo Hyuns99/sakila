@@ -32,6 +32,14 @@ public class ActorController {
 	@Autowired ActorFileService actorFileService;
 	@Autowired FilmService filmService;
 	
+	@GetMapping("/on/modifyActor")
+	public String modifyActor(Model model 
+							,@RequestParam int actorId) {
+		
+		
+		return "on/actorOne";
+	}
+	
 	@GetMapping("/on/actorOne") 
 	public String actorOne(Model model 
 							,@RequestParam int actorId) {
@@ -61,9 +69,17 @@ public class ActorController {
 		model.addAttribute("actorList", actorList);
 		
 		int lastPage = actorService.getListPage(rowPerPage, searchWord);
+		int pageSize = 5;
+		int startPage = Math.max(1, currentPage - pageSize / 2);
+		int endPage = Math.min(lastPage, startPage + pageSize - 1);
+		if (endPage - startPage < pageSize - 1) {
+		    startPage = Math.max(1, endPage - pageSize + 1);
+		}
 		
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("lastPage", lastPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
 		
 		return "on/actorList";
 	}

@@ -40,7 +40,7 @@
 				    </div>
 				    <span class="fs-6 text-danger">${msg }</span> 
 				    <br>  
-				    <button id="login-btn" type="button" class="btn btn-warning mb-3 mt-3 w-100">
+				    <button id="login-btn" type="button" class="btn btn-outline-warning mb-3 mt-3 w-100">
 				    	<span class="fw-semibold">Login</span>
 				    </button>
 				 </form>    			

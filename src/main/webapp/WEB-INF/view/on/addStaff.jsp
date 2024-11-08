@@ -57,7 +57,7 @@
         				<tr>
         					<td>storeId</td>
         					<td>
-								<select name="storeId" id="storeId">
+								<select name="storeId" id="storeId" class="form-select ">
 									<option value="">::선택하세요::</option>
 									<c:forEach var="s" items="${storeList }">
 										<option value="${s.storeId }">${s.storeId }</option>

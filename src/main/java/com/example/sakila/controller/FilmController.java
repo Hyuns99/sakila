@@ -31,6 +31,7 @@ public class FilmController {
 	public String addFilm(FilmForm filmForm) {
 		// film이 못오는 이유는 specialFeatures이 배열이기 때문에 
 		// filmService : filmForm -> film
+		filmService.addFilm(filmForm);
 		log.debug(filmForm.toString());
 		return "redirect:/on/filmList";
 	}

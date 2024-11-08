@@ -10,3 +10,11 @@ a {
 img {
 	width: 100%;
 }
+.upload-input {
+	border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.upload-input::file-selector-button {
+	display: none;
+}

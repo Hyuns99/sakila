@@ -86,6 +86,7 @@
         		
         		<div>
         			<span class="fw-semibold fs-5">출연배우</span>
+        			<!-- 배우 추가, 배우 삭제 필요 -->
         			<div>
         				<c:forEach var="a" items="${actorList }">
         					<div>

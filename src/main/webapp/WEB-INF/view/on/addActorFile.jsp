@@ -27,7 +27,10 @@
         	<div class="col-sm-10">
         		<!-- Main -->
         		<h2 class="mt-3 fw-semibold">Actor File 추가</h2>
+        		
+        		<!-- 첨부한 파일이 이미지파일이 아닐경우 에러메세지 출력 -->
         		<span class="mt-3 fw-semibold d-block text-danger">${msg }</span>
+        		
         		<form action="${pageContext.request.contextPath }/on/addActorFile" method="post" 
         			id="formAddActorFile" enctype="multipart/form-data">
         			<table class="table table-bordered mt-3">
@@ -43,7 +46,7 @@
         						<div id="fileDiv">
 		        					<button type="button" id="btnAddFile" class="btn btn-warning">파일추가</button>        					
 		        					<button type="button" id="btnRemoveFile" class="btn btn-warning">파일삭제</button>        					
-	        						<input type="file" name="actorFile" class="actorFile mt-3 d-block">
+	        						<input type="file" name="actorFile" class="upload-input actorFile mt-3 d-block">
 	        					</div>
         					</td>
         				</tr>
@@ -69,7 +72,7 @@
 			if($('.actorFile').last().val() == '') {
 				alert('첨부되지 않은 파일이 있습니다.');
 			} else {
-				let html = '<input type="file" name="actorFile" class="actorFile mt-3 d-block">';
+				let html = '<input type="file" name="actorFile" class="upload-input actorFile mt-3 d-block">';
 	    		$('#fileDiv').append(html);
 			}
 	   		 /* 자바스크립트 API

@@ -10,13 +10,13 @@ import lombok.Data;
 public class FilmForm {
 	private String title;
 	private String description;
-	private int releaseYear;
+	private Integer releaseYear;
 	private int languageId;
-	private int originalLanguageId;
+	private Integer originalLanguageId;
 	private int rentalDuration;
-	private Double rentalRate;
-	private int length;
-	private Double replacementCost;
+	private double rentalRate;
+	private Integer length;
+	private double replacementCost;
 	private String rating;
 	private List<String> specialFeatures;
 	// private String[] specialFeatures;
@@ -27,4 +27,5 @@ public class FilmForm {
 //		f.setTitle(this.title);
 //		return f;
 //	}
+	
 }

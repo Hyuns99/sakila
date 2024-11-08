@@ -58,9 +58,9 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <a href="${pageContext.request.contextPath}/on/customer/add" class="pb-3">고객 추가</a>
+                    <a href="${pageContext.request.contextPath}/on/storeList" class="pb-3">고객 리스트</a>
                     <br>
-                    <a href="${pageContext.request.contextPath}/on/customer/edit">고객 수정</a>
+                    <a href="${pageContext.request.contextPath}/on/addStore">고객 추가</a>
                 </div>
             </div>
         </div>
@@ -68,13 +68,13 @@
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    <i class="bi bi-people me-2"></i>
+                    <i class="bi bi-film me-2"></i>
                     영화관
                 </button>
             </h2>
             <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <a href="${pageContext.request.contextPath}/on/customer/add" class="pb-3">영화 리스트</a>
+                    <a href="${pageContext.request.contextPath}/on/FilmList" class="pb-3">영화 리스트</a>
                     <br>
                     <a href="${pageContext.request.contextPath}/on/addFilm">영화 추가</a>
                 </div>
@@ -101,15 +101,15 @@
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                    <i class="bi bi-stars me-2"></i>
+                    <i class="bi bi-bar-chart-line me-2"></i>
                     통계
                 </button>
             </h2>
             <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <a href="${pageContext.request.contextPath}/on/actorList" class="pb-3">Actor 리스트</a>
+                    <a href="${pageContext.request.contextPath}/on/actorList" class="pb-3">통계 리스트</a>
                     <br>
-                    <a href="${pageContext.request.contextPath}/on/addActor">Actor 추가</a>
+                    <a href="${pageContext.request.contextPath}/on/addActor">통계 추가</a>
                 </div>
             </div>
         </div>
