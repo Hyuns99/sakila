@@ -101,7 +101,7 @@
 	        				<!-- actor삭제, actor_file,  -->
 	        				<td>삭제</td>	
 	        				<td>
-								<a href="${pageContext.request.contextPath }/on/" class="btn btn-warning">삭제</a>
+								<a href="${pageContext.request.contextPath }/on/" class="btn btn-danger">삭제</a>
 							</td>        				
 	        			</tr>
 	        		</table>        			

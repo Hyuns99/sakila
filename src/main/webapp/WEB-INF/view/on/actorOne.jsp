@@ -95,7 +95,7 @@
 				            <td>${af.size} Byte</td>
 				            <td>${af.createDate}</td>
 				            <td>
-				                <a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.actorId}" class="btn btn-warning">삭제</a>
+				                <a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.actorId}" class="btn btn-denger">삭제</a>
 				            </td>
 				        </tr>
 				    </c:forEach>
@@ -142,7 +142,7 @@
         							<td>
         								<!-- 삭제 시 f.filmId, actor.actorId 필요 -->
         								<a href="${pageContext.request.contextPath }/on/removeFilmActor?FilmId=${f.filmId}&actorId=${actor.actorId}" 
-        									class="btn btn-warning">
+        									class="btn btn-denger">
         									삭제
         								</a>
         							</td>

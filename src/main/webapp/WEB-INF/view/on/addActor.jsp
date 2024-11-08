@@ -51,7 +51,7 @@
 	        				<td>
 	        					<div id="fileDiv">
 		        					<button type="button" id="btnAddFile" class="btn btn-warning">파일추가</button>        					
-		        					<button type="button" id="btnRemoveFile" class="btn btn-warning">파일삭제</button>        					
+		        					<button type="button" id="btnRemoveFile" class="btn btn-danger">파일삭제</button>        					
 	        					</div>
 	        				</td>
 	        			</tr>

@@ -45,7 +45,7 @@
         					<td>
         						<div id="fileDiv">
 		        					<button type="button" id="btnAddFile" class="btn btn-warning">파일추가</button>        					
-		        					<button type="button" id="btnRemoveFile" class="btn btn-warning">파일삭제</button>        					
+		        					<button type="button" id="btnRemoveFile" class="btn btn-danger">파일삭제</button>        					
 	        						<input type="file" name="actorFile" class="upload-input actorFile mt-3 d-block">
 	        					</div>
         					</td>

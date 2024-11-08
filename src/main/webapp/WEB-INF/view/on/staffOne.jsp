@@ -30,6 +30,12 @@
 				<img class="staffImg" src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">
 				<br>
         		<span class="mt-3 fs-4">${staff.managerName }님 회원정보</span>
+        		<div class="mt-3">
+        			<a href="${pageContext.request.contextPath}" class="btn btn-warning">password 수정</a>
+        			<a href="${pageContext.request.contextPath}" class="btn btn-warning">email 수정</a>
+        			<a href="${pageContext.request.contextPath}" class="btn btn-warning">address 수정</a>
+        			<a href="${pageContext.request.contextPath}" class="btn btn-warning">store 수정</a>
+        		</div>
         		<table class="table table-bordered mt-3 mb-3">
         			<!-- 스탭 정보 -->
         			<tr>
@@ -117,12 +123,7 @@
         				<td>${staff.managerName }</td>
         			</tr>
         		</table>
-        		<div>
-        			<a href="${pageContext.request.contextPath}" class="btn btn-warning">password 수정</a>
-        			<a href="${pageContext.request.contextPath}" class="btn btn-warning">email 수정</a>
-        			<a href="${pageContext.request.contextPath}" class="btn btn-warning">address 수정</a>
-        			<a href="${pageContext.request.contextPath}" class="btn btn-warning">store 수정</a>
-        		</div>
+        		
         	</div>
         </div>
     </body>
