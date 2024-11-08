@@ -31,11 +31,11 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h2 class="mt-3 fw-semibold">Actor 정보</h2>
+        		<h2 class="mt-3 fw-semibold">배우 상세보기</h2>
         		
         		<!-- ●
         			● 1) actor 상세 완료, 
-        			1-1) actor 수정 /on/modifyActor
+        			● 1-1) actor 수정 /on/modifyActor
         			1-2) actor 삭제 /on/removeActor(actor_file, actor가 출연한 flimList, actor 삭제)
         			● 2) actor_file List 완료
         			● 2-1) actor_file 추가 완료
@@ -66,8 +66,11 @@
         		</table>
         		<div>
         			<!-- 과제 : 입력폼, 액션, 서비스, 맵퍼 -->
-        			<a href="${pageContext.request.contextPath }/on/modifyActor" class="btn btn-warning">
-        				actor 수정 
+        			<a href="${pageContext.request.contextPath }/on/modifyActor?actorId=${actor.actorId}" class="btn btn-warning">
+        				수정 
+        			</a>
+        			<a href="${pageContext.request.contextPath }/on/removeActor?actorId=${actor.actorId}" class="btn btn-danger">
+        				삭제 
         			</a>
         		</div>
         		<!-- actor file -->
@@ -81,22 +84,24 @@
 				    </tr>
 				    <c:forEach var="af" items="${actorFileList}">
 				        <tr>
-				            <td>
-				                <c:choose>
-				                    <c:when test="${af.actorFileId == null}">
-				                        첨부된 파일이 없습니다
-				                    </c:when>
-				                    <c:otherwise>
-				                        <img class="w-25" alt="fileImg" src="${pageContext.request.contextPath}/upload/${af.filename}.${af.ext}">
-				                    </c:otherwise>
-				                </c:choose>
-				            </td>
-				            <td>${af.type}</td>
-				            <td>${af.size} Byte</td>
-				            <td>${af.createDate}</td>
-				            <td>
-				                <a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.actorId}" class="btn btn-denger">삭제</a>
-				            </td>
+				        <c:choose>
+		                    <c:when test="${af.actorFileId == null}">
+					            <td colspan="5">
+			                        첨부된 파일이 없습니다				            
+					            </td>
+				            </c:when>
+		                    <c:otherwise>
+		                    	<td>		                    	
+			                        <img class="w-25" alt="fileImg" src="${pageContext.request.contextPath}/upload/${af.filename}.${af.ext}">
+		                    	</td>
+					            <td>${af.type}</td>
+					            <td>${af.size} Byte</td>
+					            <td>${af.createDate}</td>
+					            <td>
+					                <a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.actorId}" class="btn btn-danger">삭제</a>
+					            </td>
+		                    </c:otherwise>
+		                </c:choose>
 				        </tr>
 				    </c:forEach>
 				</table>
@@ -129,12 +134,12 @@
         					<button id="btnAddFilm" class="btn btn-warning mt-3 mb-3">추가</button>
         				</form>
         			</div>
-        			<c:forEach var="f" items="${filmList }">
         					<table class="table table-bordered mt-3">
         						<tr>
         							<td>출연작</td>
         							<td>삭제</td>
         						</tr>
+		        			<c:forEach var="f" items="${filmList }">
         						<tr>
         							<td>
 										<a href="${pageContext.request.contextPath }/on/filmOne?filmId=${f.filmId}">${f.title }</a>&nbsp;
@@ -142,13 +147,13 @@
         							<td>
         								<!-- 삭제 시 f.filmId, actor.actorId 필요 -->
         								<a href="${pageContext.request.contextPath }/on/removeFilmActor?FilmId=${f.filmId}&actorId=${actor.actorId}" 
-        									class="btn btn-denger">
+        									class="btn btn-danger">
         									삭제
         								</a>
         							</td>
         						</tr>
+		        			</c:forEach>
         					</table>
-        			</c:forEach>
         		</div>
         	</div>
         </div>

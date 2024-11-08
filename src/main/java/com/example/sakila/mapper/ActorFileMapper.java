@@ -9,6 +9,10 @@ import com.example.sakila.vo.ActorFile;
 
 @Mapper
 public interface ActorFileMapper {
+	// /on/removeActor 호출
+	// 모든 actor 이미지파일을 삭제
+	int deleteActorFileByActor(int actorId);
+	
 	// /on/removeActorFile : Service
 	ActorFile selectActorFileOne(int actorFileId);
 	

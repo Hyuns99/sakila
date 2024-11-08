@@ -32,12 +32,29 @@ public class ActorController {
 	@Autowired ActorFileService actorFileService;
 	@Autowired FilmService filmService;
 	
+	@GetMapping("/on/removeActor")
+	public String removeActor(HttpSession session
+							,@RequestParam int actorId) {
+		String path = session.getServletContext().getRealPath("/upload/");
+		actorService.removeActor(actorId, path);
+		
+		return "redirect:/on/actorList";
+	}
+	
+	@PostMapping("/on/modifyActor")
+	public String modifyActor(Actor actor) {
+		int row = actorService.modifyActor(actor);
+		
+		return "redirect:/on/actorOne?actorId=" +actor.getActorId();
+	}
+	
 	@GetMapping("/on/modifyActor")
 	public String modifyActor(Model model 
 							,@RequestParam int actorId) {
+		Actor actor = actorService.getActorOne(actorId);
+		model.addAttribute("actor",actor);
 		
-		
-		return "on/actorOne";
+		return "on/modifyActor";
 	}
 	
 	@GetMapping("/on/actorOne") 
@@ -57,7 +74,6 @@ public class ActorController {
 			List<Film> searchFilmList = filmService.getFilmListByTitle(searchTitle);
 			model.addAttribute("searchFilmList", searchFilmList);
 		}
-		
 		model.addAttribute("actor",actor);
 		model.addAttribute("actorFileList",actorFileList);
 		model.addAttribute("filmList",filmList);

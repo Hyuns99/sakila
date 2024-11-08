@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.sakila.mapper.ActorFileMapper;
 import com.example.sakila.mapper.ActorMapper;
+import com.example.sakila.mapper.FilmActorMapper;
 import com.example.sakila.mapper.FilmMapper;
 import com.example.sakila.vo.Actor;
 import com.example.sakila.vo.ActorFile;
@@ -25,6 +28,39 @@ public class ActorService {
 	@Autowired ActorMapper actorMapper;
 	@Autowired ActorFileMapper actorFileMapper;
 	@Autowired FilmMapper filmMapper;
+	@Autowired FilmActorMapper filmActorMapper;
+	
+	// /on/removeActor : 배우 삭제
+	public void removeActor(int actorId, String path) {
+		// 1) film_actor 삭제, 없다면 삭제 없음 
+		filmActorMapper.deleteFileByActor(actorId);
+		
+		// 2) actor_file 삭제
+		List<ActorFile> list = actorFileMapper.selectActorFileListByActor(actorId);
+		actorFileMapper.deleteActorFileByActor(actorId);
+		
+		// 3) actor 삭제
+		int row = actorMapper.deleteActor(actorId);
+		
+		// 4) 물리적 파일 삭제
+		if(row == 1 && list != null && list.size() > 0) {
+			for(ActorFile af : list) {
+				String fullname = path + af.getFilename() + "." + af.getExt();
+				File f = new File(fullname);
+				f.delete();
+				// 예외처리를 할 때
+//				boolean result = f.delete();
+//				if(result == false) {
+//					throw new RuntimeException();
+//				}
+			}
+		}
+	}
+	
+	// 배우 수정
+	public int modifyActor(Actor actor) {
+		return actorMapper.updateActor(actor);
+	}
 	
 	public List<Actor> getActorListByFilm(int filmId) {
 		return actorMapper.selectActorListByFilm(filmId);

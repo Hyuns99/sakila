@@ -26,34 +26,53 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h2 class="mt-3 fw-semibold">Actor 정보</h2>
+        		<h2 class="mt-3 fw-semibold">Actor 수정</h2>
         		<!-- actor -->
-        		<form action="">
-	        		<table class="table table-bordered mt-3">
-	        			<tr>
-	        				<td>actorId</td>
-	        				<td>${actor.actorId }</td>
-	        			</tr>
-	        			<tr>
-	        				<td>firstName</td>
-	        				<td>${actor.firstName }</td>
-	        			</tr>
-	        			<tr>
-	        				<td>lastName</td>
-	        				<td>${actor.lastName }</td>
-	        			</tr>
-	        			<tr>
-	        				<td>lastUpdate</td>
-	        				<td>${actor.lastUpdate }</td>
-	        			</tr>
-	        		</table>
-	        		<div>
-	        			<a href="${pageContext.request.contextPath }/on/modifyActor" class="btn btn-warning">
-	        				actor 수정 
-	        			</a>
-	        		</div>        		
-        		</form>
+        		<table class="table table-bordered mt-3">
+        			<tr>
+        				<td>actorId</td>
+        				<td>${actor.actorId }</td>
+        			</tr>
+        			<tr>
+        				<td>firstName</td>
+        				<td>
+        					<form id="fromFirstName" action="${pageContext.request.contextPath }/on/modifyActor" method="post">
+        						<input type="hidden" name="actorId" value="${actor.actorId }">
+	        					<input type="text" name="firstName" id="firstName" value="${actor.firstName }">	    
+	        					<button type="button" class="btn btn-warning" id="btnFirstName">firstName 수정</button>    					
+        					</form>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td>lastName</td>
+        				<td>
+        					<form id="fromLastName" action="${pageContext.request.contextPath }/on/modifyActor" method="post">
+        						<input type="hidden" name="actorId" value="${actor.actorId }">
+	        					<input type="text" name="lastName" id="lastName" value="${actor.lastName }">	    
+	        					<button type="button" class="btn btn-warning" id="btnLastName">lastName 수정</button>    					
+        					</form>
+        				</td>
+        			</tr>
+        		</table>
         	</div>
         </div>
     </body>
+    <script type="text/javascript">
+    // firstName
+    	$("#btnFirstName").click(function() {
+    		if($('#firstName') == '') {
+    			alert("firstName을 입력해주세요");
+    		} else {
+    			$("#fromFirstName").submit();
+    		}
+    	})
+    	// lastName
+    	$("#btnLastName").click(function() {
+    		if($('#lastName') == '') {
+    			alert("lastName을 입력해주세요");
+    		} else {
+    			$("#fromLastName").submit();
+    		}
+    	})
+    </script>
 </html>
