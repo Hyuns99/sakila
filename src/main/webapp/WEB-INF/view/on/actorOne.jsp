@@ -35,14 +35,14 @@
         		
         		<!-- ●
         			● 1) actor 상세 완료, 
-        			1-1) actor 수정 /on/modifyActor 과제
+        			1-1) actor 수정 /on/modifyActor
         			1-2) actor 삭제 /on/removeActor(actor_file, actor가 출연한 flimList, actor 삭제)
         			● 2) actor_file List 완료
         			● 2-1) actor_file 추가 완료
         			● 2-3) actor_file 개별 
         			● 3) film_actor List 완료,  
-        			3-1) film_actor 추가 /on/addFilmByActor -> 필름 검색 후 선택
-	        		3-2) film_actor 삭제 /on/removeFilmByActor
+        			● 3-1) film_actor 추가 /on/addFilmByActor -> 필름 검색 후 선택
+	        		● 3-2) film_actor 삭제 /on/removeFilmByActor
         		-->
         		
         		<!-- actor -->
@@ -130,7 +130,24 @@
         				</form>
         			</div>
         			<c:forEach var="f" items="${filmList }">
-        				<a href="${pageContext.request.contextPath }/on/filmOne?filmId=${f.filmId}">${f.title },</a>&nbsp;
+        					<table class="table table-bordered mt-3">
+        						<tr>
+        							<td>출연작</td>
+        							<td>삭제</td>
+        						</tr>
+        						<tr>
+        							<td>
+										<a href="${pageContext.request.contextPath }/on/filmOne?filmId=${f.filmId}">${f.title }</a>&nbsp;
+									</td>
+        							<td>
+        								<!-- 삭제 시 f.filmId, actor.actorId 필요 -->
+        								<a href="${pageContext.request.contextPath }/on/removeFilmActor?FilmId=${f.filmId}&actorId=${actor.actorId}" 
+        									class="btn btn-warning">
+        									삭제
+        								</a>
+        							</td>
+        						</tr>
+        					</table>
         			</c:forEach>
         		</div>
         	</div>
