@@ -15,7 +15,7 @@ import com.example.sakila.vo.FilmForm;
 @Transactional
 public class FilmService {
 	@Autowired FilmMapper filmMapper;
-	
+
 	public List<Film> getFilmListByTitle(String searchWord) {
 		return filmMapper.selectFilmListByTitle(searchWord);
 	}
@@ -31,6 +31,8 @@ public class FilmService {
 		} else {
 			film.setDescription(filmForm.getDescription());
 		}
+		
+		// filmForm에 있던 데이터베이스를 film에 저장
 		film.setReleaseYear(filmForm.getReleaseYear());
 		film.setLanguageId(filmForm.getLanguageId());
 		film.setOriginalLanguageId(filmForm.getOriginalLanguageId());

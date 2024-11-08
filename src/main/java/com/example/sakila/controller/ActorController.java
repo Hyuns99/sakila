@@ -65,9 +65,9 @@ public class ActorController {
 		Actor actor = actorService.getActorOne(actorId);
 		List<ActorFile> actorFileList = actorFileService.getActorFileListByActor(actorId);
 		List<Film> filmList = filmService.getFilmTitleListByActor(actorId); // 내가 출연한 film리스트
-		log.debug(actor.toString());
-		log.debug(actorFileList.toString());
-		log.debug(filmList.toString());
+		log.debug("actor" + actor.toString());
+		log.debug("actorFileList" + actorFileList.toString());
+		log.debug("filmList" + filmList.toString());
 		
 		if(searchTitle.equals("") == false) { // 검색어가 있다면
 			// film 검색 결과 리스트를 추가
@@ -93,6 +93,7 @@ public class ActorController {
 		model.addAttribute("actorList", actorList);
 		
 		int lastPage = actorService.getListPage(rowPerPage, searchWord);
+		// 페이지네이션에서 5개만 보일 수 있게
 		int pageSize = 5;
 		int startPage = Math.max(1, currentPage - pageSize / 2);
 		int endPage = Math.min(lastPage, startPage + pageSize - 1);

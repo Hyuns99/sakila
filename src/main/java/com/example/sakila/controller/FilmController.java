@@ -15,6 +15,7 @@ import com.example.sakila.service.FilmService;
 import com.example.sakila.service.LanguageService;
 import com.example.sakila.vo.Actor;
 import com.example.sakila.vo.Film;
+import com.example.sakila.vo.FilmActor;
 import com.example.sakila.vo.FilmForm;
 import com.example.sakila.vo.Language;
 
