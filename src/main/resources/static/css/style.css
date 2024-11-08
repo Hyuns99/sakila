@@ -18,3 +18,6 @@ img {
 .upload-input::file-selector-button {
 	display: none;
 }
+td {
+    word-break: keep-all;
+}

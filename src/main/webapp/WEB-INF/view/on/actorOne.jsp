@@ -27,6 +27,19 @@
         	<div class="col-sm-10">
         		<!-- Main -->
         		<h2 class="mt-3 fw-semibold">Actor 정보</h2>
+        		
+        		<!-- ●
+        			● 1) actor 상세 완료, 
+        			1-1) actor 수정 /on/modifyActor 과제
+        			1-2) actor 삭제 /on/removeActor(actor_file, actor가 출연한 flimList, actor 삭제)
+        			● 2) actor_file List 완료
+        			● 2-1) actor_file 추가 완료
+        			● 2-3) actor_file 개별 
+        			● 3) film_actor List 완료,  
+        			3-1) film_actor 추가 /on/addFilmByActor -> 필름 검색 후 선택
+	        			3-2) film_actor 삭제 /on/removeFilmActor
+        		-->
+        		
         		<!-- actor -->
         		<table class="table table-bordered mt-3">
         			<tr>
@@ -77,7 +90,7 @@
 				            <td>${af.size} Byte</td>
 				            <td>${af.createDate}</td>
 				            <td>
-				                <a href="${pageContext.request.contextPath}/on/delect" class="btn btn-warning">삭제</a>
+				                <a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.actorId}" class="btn btn-warning">삭제</a>
 				            </td>
 				        </tr>
 				    </c:forEach>

@@ -21,6 +21,14 @@ import lombok.extern.slf4j.Slf4j;
 public class ActorFileController {
 	@Autowired ActorFileService actorFileService;
 	
+	@GetMapping("/on/removeActorFile")
+	public String removeActorFile(HttpSession session, @RequestParam int actorFileId
+								, @RequestParam int actorId) {
+		String path = session.getServletContext().getRealPath("/upload/");
+		actorFileService.removeActorFile(actorFileId, path);
+		return "redirect:/on/actorOne?actorId=" + actorId;
+	}
+	
 	@PostMapping("/on/addActorFile")
 	public String addActorFile(Model model,HttpSession session,ActorForm actorForm) {
 		List<MultipartFile> list = actorForm.getActorFile();
