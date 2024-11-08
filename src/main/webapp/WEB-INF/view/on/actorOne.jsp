@@ -56,19 +56,19 @@
 			<!-- actor -->
 			<table class="table table-bordered mt-3">
 				<tr>
-					<td>actorId</td>
+					<td class="fw-semibold">actorId</td>
 					<td>${actor.actorId }</td>
 				</tr>
 				<tr>
-					<td>firstName</td>
+					<td class="fw-semibold">firstName</td>
 					<td>${actor.firstName }</td>
 				</tr>
 				<tr>
-					<td>lastName</td>
+					<td class="fw-semibold">lastName</td>
 					<td>${actor.lastName }</td>
 				</tr>
 				<tr>
-					<td>lastUpdate</td>
+					<td class="fw-semibold">lastUpdate</td>
 					<td>${actor.lastUpdate }</td>
 				</tr>
 			</table>
@@ -83,11 +83,11 @@
 			<!-- actor file -->
 			<table class="table table-bordered mt-3">
 				<tr>
-					<td>Image</td>
-					<td>Type</td>
-					<td>Size</td>
-					<td>Create Date</td>
-					<td>Delete</td>
+					<td class="fw-semibold">Image</td>
+					<td class="fw-semibold">Type</td>
+					<td class="fw-semibold">Size</td>
+					<td class="fw-semibold">Create Date</td>
+					<td class="fw-semibold">Delete</td>
 				</tr>
 				<tr>
 					<c:choose>
@@ -145,8 +145,8 @@
 				</div>
 				<table class="table table-bordered mt-3">
 					<tr>
-						<td>출연작</td>
-						<td>삭제</td>
+						<td class="fw-semibold">출연작</td>
+						<td class="fw-semibold">삭제</td>
 					</tr>
 					<c:forEach var="f" items="${filmList }">
 						<tr>

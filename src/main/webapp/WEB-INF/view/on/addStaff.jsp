@@ -55,7 +55,7 @@
         		<form id="addform" action="${pageContext.request.contextPath }/on/addStaff" method="post">
         			<table class="table table-bordered mt-3" >
         				<tr>
-        					<td>storeId</td>
+        					<td class="fw-semibold">storeId</td>
         					<td>
 								<select name="storeId" id="storeId" class="form-select ">
 									<option value="">::선택하세요::</option>
@@ -67,32 +67,32 @@
         				</tr>
 
         				<tr>
-        					<td>address Id</td>
+        					<td class="fw-semibold">address Id</td>
         					<td>
 								<input type="text" name="addressId" id="addressId" readonly>
 							</td>
         				</tr>
         				
         				<tr>
-        					<td>firstName</td>
+        					<td class="fw-semibold">firstName</td>
         					<td>
         						<input type="text" name="firstName" id="firstName">
         					</td>
         				</tr>
         				<tr>
-        					<td>lastName</td>
+        					<td class="fw-semibold">lastName</td>
         					<td>
         						<input type="text" name="lastName" id="lastName">
         					</td>
         				</tr>
         				<tr>
-        					<td>email</td>
+        					<td class="fw-semibold">email</td>
         					<td>
         						<input type="text" name="email" id="email">
         					</td>
         				</tr>
         				<tr>
-        					<td>userName</td>
+        					<td class="fw-semibold">userName</td>
         					<td>
         						<input type="text" name="userName" id="userName">
         					</td>

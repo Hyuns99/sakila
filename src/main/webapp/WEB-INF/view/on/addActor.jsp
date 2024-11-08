@@ -35,19 +35,19 @@
         		<form id="formActor" action="${pageContext.request.contextPath}/on/addActor" method="post" enctype="multipart/form-data">
 	        		<table class="table table-bordered mt-3">
 	        			<tr>
-	        				<td>firstName</td>
+	        				<td class="fw-semibold">firstName</td>
 	        				<td>
 	        					<input type="text" name="firstName" id="firstName">
 	        				</td>
 	        			</tr>
 	        			<tr>
-	        				<td>lastName</td>
+	        				<td class="fw-semibold">lastName</td>
 	        				<td>
 	        					<input type="text" name="lastName" id="lastName">
 	        				</td>
 	        			</tr>
 	        			<tr>
-	        				<td>file</td>
+	        				<td class="fw-semibold">file</td>
 	        				<td>
 	        					<div id="fileDiv">
 		        					<button type="button" id="btnAddFile" class="btn btn-warning">파일추가</button>        					

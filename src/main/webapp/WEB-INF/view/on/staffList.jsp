@@ -29,16 +29,16 @@
         		
         		<table class="table table-bordered mt-3">
         			<tr>
-        				<td>staffId</td>
-        				<td>firstName</td>
-        				<td>lastName</td>
-        				<td>addressId</td>
-        				<td>email</td>
-        				<td>storeId</td>
-        				<td>userName</td>
-        				<td>lastUpdate</td>
-        				<td>active</td>
-        				<td>활성/비활성화</td>
+        				<td class="fw-semibold">staffId</td>
+        				<td class="fw-semibold">firstName</td>
+        				<td class="fw-semibold">lastName</td>
+        				<td class="fw-semibold">addressId</td>
+        				<td class="fw-semibold">email</td>
+        				<td class="fw-semibold">storeId</td>
+        				<td class="fw-semibold">userName</td>
+        				<td class="fw-semibold">lastUpdate</td>
+        				<td class="fw-semibold">active</td>
+        				<td class="fw-semibold">활성/비활성화</td>
         			</tr>
         			<c:forEach items="${staffList }" var="s">
 	        			<tr>

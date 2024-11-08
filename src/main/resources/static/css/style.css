@@ -1,6 +1,7 @@
 @charset "UTF-8";
 body {
 	height: 100vh;
+	color: #333; 
 }
 a {
 	display: inline-block;
@@ -19,5 +20,9 @@ img {
 	display: none;
 }
 td {
+    color: #333;
     word-break: keep-all;
+}
+.fw-semibold {
+	color: #333 !important;
 }

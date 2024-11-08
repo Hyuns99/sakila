@@ -30,11 +30,11 @@
         		<!-- actor -->
         		<table class="table table-bordered mt-3">
         			<tr>
-        				<td>actorId</td>
+        				<td class="fw-semibold">actorId</td>
         				<td>${actor.actorId }</td>
         			</tr>
         			<tr>
-        				<td>firstName</td>
+        				<td class="fw-semibold">firstName</td>
         				<td>
         					<form id="fromFirstName" action="${pageContext.request.contextPath }/on/modifyActor" method="post">
         						<input type="hidden" name="actorId" value="${actor.actorId }">
@@ -44,7 +44,7 @@
         				</td>
         			</tr>
         			<tr>
-        				<td>lastName</td>
+        				<td class="fw-semibold">lastName</td>
         				<td>
         					<form id="fromLastName" action="${pageContext.request.contextPath }/on/modifyActor" method="post">
         						<input type="hidden" name="actorId" value="${actor.actorId }">

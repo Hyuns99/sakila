@@ -35,13 +35,13 @@
         			id="formAddActorFile" enctype="multipart/form-data">
         			<table class="table table-bordered mt-3">
         				<tr>
-        					<td>actorId</td>
+        					<td class="fw-semibold">actorId</td>
         					<td>
         						<input type="text" name="actorId" value="${actorId}" readonly>
         					</td>
         				</tr>
         				<tr>
-        					<td>file</td>
+        					<td class="fw-semibold">file</td>
         					<td>
         						<div id="fileDiv">
 		        					<button type="button" id="btnAddFile" class="btn btn-warning">파일추가</button>        					

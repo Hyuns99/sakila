@@ -33,8 +33,8 @@
         		</form>
         		<table class="table table-bordered mt-3">
         			<tr>
-        				<td>ActorId</td>
-        				<td>Name</td>
+        				<td class="fw-semibold">ActorId</td>
+        				<td class="fw-semibold">Name</td>
         			</tr>
         			<c:forEach var="a" items="${actorList }">
         				<tr>

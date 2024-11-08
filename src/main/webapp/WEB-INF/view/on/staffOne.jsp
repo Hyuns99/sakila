@@ -30,100 +30,81 @@
 				<img class="staffImg" src="${pageContext.request.contextPath}/images/cat.png" alt="회원이미지">
 				<br>
         		<span class="mt-3 fs-4">${staff.managerName }님 회원정보</span>
-        		<div class="mt-3">
+        		<div class="mt-3 mb-3">
         			<a href="${pageContext.request.contextPath}" class="btn btn-warning">password 수정</a>
         			<a href="${pageContext.request.contextPath}" class="btn btn-warning">email 수정</a>
         			<a href="${pageContext.request.contextPath}" class="btn btn-warning">address 수정</a>
         			<a href="${pageContext.request.contextPath}" class="btn btn-warning">store 수정</a>
         		</div>
+        		
+        		<span class="fw-semibold fs-5">Staff 정보</span>
         		<table class="table table-bordered mt-3 mb-3">
         			<!-- 스탭 정보 -->
         			<tr>
-        				<td class="fw-semibold table-success ">StaffId</td>
+        				<td class="fw-semibold">StaffId</td>
+        				<td class="fw-semibold">firstName</td>
+        				<td class="fw-semibold">lastName</td>
+        				<td class="fw-semibold ">staffPostCode</td>
+        				<td class="fw-semibold ">staffPhone</td>
+        				<td class="fw-semibold">staffAddress</td>
+        				<td class="fw-semibold ">staffAddress2</td>
+        				<td class="fw-semibold ">staffDistrict</td>
+        				<td class="fw-semibold">staffCity</td>
+        				<td class="fw-semibold ">staffCountry</td>
+        			</tr>
+        			<tr>
         				<td>${staff.staffId }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-success">firstName</td>
         				<td>${staff.firstName }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-success">lastName</td>
         				<td>${staff.lastName }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-success">staffPostCode</td>
         				<td>${staff.staffPostCode }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-success">staffPhone</td>
         				<td>${staff.staffPhone }</td>
-        			</tr>
-        			<!-- 스탭 주소 -->
-        			<tr>
-        				<td class="fw-semibold table-danger">staffAddress</td>
+        				<!-- 스탭 주소 -->
         				<td>${staff.staffAddress }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-danger">staffAddress2</td>
         				<td>${staff.staffAddress2 }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-danger">staffDistrict</td>
         				<td>${staff.staffDistrict }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-danger">staffCity</td>
         				<td>${staff.staffCity }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-danger">staffCountry</td>
         				<td>${staff.staffCountry }</td>
-        			</tr>
-        			<!-- 지점 정보 -->
-        			<tr>
-        				<td class="fw-semibold table-warning">storeId</td>
-        				<td>${staff.storeId }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-warning">storeAddress</td>
-        				<td>${staff.storeAddress }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-warning">storeAddress2</td>
-        				<td>${staff.storeAddress2 }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-warning">storeDistrict</td>
-        				<td>${staff.storeDistrict }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-warning">storePostCode</td>
-        				<td>${staff.storePostCode }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-warning">storePhone</td>
-        				<td>${staff.storePhone }</td>
-        			</tr>
-        			<!-- 지점 주소 -->
-        			<tr>
-        				<td class="fw-semibold table-info">storeCity</td>
-        				<td>${staff.storeCity }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-info">storeCountry</td>
-        				<td>${staff.storeCountry }</td>
-        			</tr>
-        			<!-- 매니저 정보 -->
-        			<tr>
-        				<td class="fw-semibold table-primary">managerStaffId</td>
-        				<td>${staff.managerStaffId }</td>
-        			</tr>
-        			<tr>
-        				<td class="fw-semibold table-primary">managerName</td>
-        				<td>${staff.managerName }</td>
         			</tr>
         		</table>
         		
+        		<span class="fw-semibold fs-5">Store 정보</span>
+        		<table class="table table-bordered mt-3 mb-3">
+        			<!-- 지점 정보 -->
+        			<tr>
+        				<td class="fw-semibold">storeId</td>
+        				<td class="fw-semibold">storeAddress</td>
+        				<td class="fw-semibold">storeAddress2</td>
+        				<td class="fw-semibold">storeDistrict</td>
+        				<td class="fw-semibold">storePostCode</td>
+        				<td class="fw-semibold">storePhone</td>
+        				<td class="fw-semibold">storeCity</td>
+        				<td class="fw-semibold">storeCountry</td>
+        			</tr>
+        			<tr>
+        				<td>${staff.storeId }</td>
+        				<td>${staff.storeAddress }</td>
+        				<td>${staff.storeAddress2 }</td>
+        				<td>${staff.storeDistrict }</td>
+        				<td>${staff.storePostCode }</td>
+        				<td>${staff.storePhone }</td>
+        				<!-- 지점 주소 -->
+        				<td>${staff.storeCity }</td>
+        				<td>${staff.storeCountry }</td>
+        			</tr>
+       			</table>
+       			
+        		<span class="fw-semibold fs-5">Manager 정보</span>
+        		<table class="table table-bordered mt-3 mb-3">
+        			<!-- 매니저 정보 -->
+        			<tr>
+        				<td class="fw-semibold">managerStaffId</td>
+        				<td class="fw-semibold">managerName</td>
+        			</tr>
+        			<tr>
+        				<td>${staff.managerStaffId }</td>
+        				<td>${staff.managerName }</td>
+        			</tr>
+       			</table>
         	</div>
         </div>
     </body>

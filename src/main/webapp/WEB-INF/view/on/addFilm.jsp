@@ -31,13 +31,13 @@
         			<table class="table table-bordered mt-3">
         				<!-- 필수항목 -->
         				<tr>
-        					<td>title</td>
+        					<td class="fw-semibold">title</td>
         					<td>
         						<input type="text" name="title" id="title">
         					</td>
         				</tr>
         				<tr>
-        					<td>languageId</td>
+        					<td class="fw-semibold">languageId</td>
         					<td>
         						<select id="languageId" name="languageId" class="form-select ">
         							<option value="">언어 선택</option>
@@ -49,29 +49,28 @@
         				</tr>
         				
         				<tr>
-        					<td>rentalDuration</td>
+        					<td class="fw-semibold">rentalDuration</td>
         					<td>
         						<!-- DB기본값 : 3 -->
         						<input type="number" id="rentalDuration" name="rentalDuration" value="3">
         					</td>
         				</tr>
         				<tr>
-        					<td>rentalRate</td>
+        					<td class="fw-semibold">rentalRate</td>
         					<td>
         						<!-- DB기본값 : 4.99 -->
         						<input type="number" id="rentalRate" name="rentalRate" value="4.99">
         					</td>
         				</tr>
-        				
         				<tr>
-        					<td>replacementCost</td>
+        					<td class="fw-semibold">replacementCost</td>
         					<td>
         						<!-- DB기본값 : 19.99 -->
         						<input type="number" id="replacementCost" name="replacementCost" value="19.99">
         					</td>
         				</tr>
         				<tr>
-        					<td>rating</td>
+        					<td class="fw-semibold">rating</td>
         					<td>
         						<!-- radio -->
         						<!-- eunm(G,PG,PG-13,R,NC-17)타입, DB기본값 : "G" -->
@@ -85,20 +84,20 @@
         				</tr>
         				<!-- 선택적 항목 -->
         				<tr>
-        					<td>description</td>
+        					<td class="fw-semibold">description</td>
         					<td>
         						<!-- textarea -->
         						<textarea rows="3" cols="50" id="description" name="description"></textarea>
         					</td>
         				</tr>
         				<tr>
-        					<td>releaseYear</td>
+        					<td class="fw-semibold">releaseYear</td>
         					<td>
         						<input type="number" id="releaseYear" name="releaseYear">
         					</td>
         				</tr>
         				<tr>
-        					<td>originalLanguageId</td>
+        					<td class="fw-semibold">originalLanguageId</td>
         					<td>
         						<select id="originalLanguageId" name="originalLanguageId"  class="form-select ">
         							<option value="">오리지널 언어 선택</option>
@@ -109,13 +108,13 @@
         					</td>
         				</tr>
         				<tr>
-        					<td>length</td>
+        					<td class="fw-semibold">length</td>
         					<td>
         						<input type="number" id="length" name="length" value="0">분
         					</td>
         				</tr>
         				<tr>
-        					<td>specialFeatures</td>
+        					<td class="fw-semibold">specialFeatures</td>
         					<td>
         						<!-- checkbox -->
         						<!-- set('Trailers','Commentaries','Deleted Scenes','Behind the Scenes')타입, DB기본값 : null -->

@@ -44,51 +44,51 @@
        			<!-- 필름하나의 상세 정보 -->
         		<table class="table table-bordered mt-3">
         			<tr>
-        				<td>filmId</td>
+        				<td class="fw-semibold">filmId</td>
         				<td>${film.filmId }</td>
         			</tr>
         			<tr>
-        				<td>title</td>
+        				<td class="fw-semibold">title</td>
         				<td>${film.title }</td>
         			</tr>
         			<tr>
-        				<td>length</td>
+        				<td class="fw-semibold">length</td>
         				<td>${film.length }</td>
         			</tr>
         			<tr>
-        				<td>releaseYear</td>
+        				<td class="fw-semibold">releaseYear</td>
         				<td>${film.releaseYear }</td>
         			</tr>
         			<tr>
-        				<td>language</td>
+        				<td class="fw-semibold">language</td>
         				<td>${film.language }</td>
         			</tr>
         			<tr>
-        				<td>rentalRate</td>
+        				<td class="fw-semibold">rentalRate</td>
         				<td>${film.rentalRate }</td>
         			</tr>
         			<tr>
-        				<td>rentalDuration</td>
+        				<td class="fw-semibold">rentalDuration</td>
         				<td>${film.rentalDuration }</td>
         			</tr>
         			<tr>
-        				<td>specialFeatures</td>
+        				<td class="fw-semibold">specialFeatures</td>
         				<td>${film.specialFeatures }</td>
         			</tr>
         			<tr>
-        				<td>rating</td>
+        				<td class="fw-semibold">rating</td>
         				<td>${film.rating }</td>
         			</tr>
         			<tr>
-        				<td>description</td>
+        				<td class="fw-semibold">description</td>
         				<td>${film.description }</td>
         			</tr>
         			<tr>
-        				<td>replacementCost</td>
+        				<td class="fw-semibold">replacementCost</td>
         				<td>${film.replacementCost }</td>
         			</tr>
         			<tr>
-        				<td>lastUpdate</td>
+        				<td class="fw-semibold">lastUpdate</td>
         				<td>${film.lastUpdate }</td>
         			</tr>
         		</table> 
