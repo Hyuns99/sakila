@@ -17,6 +17,11 @@
         <!-- menu.css -->
         <link href="${pageContext.request.contextPath}/css/leftMenu.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+        <style type="text/css">
+        	#formAddFilm {
+        		text-align: right;
+        	}
+        </style>
     </head>
     <body class="container-flud">
         <div class="row w-100">
@@ -37,7 +42,7 @@
         			● 2-3) actor_file 개별 
         			● 3) film_actor List 완료,  
         			3-1) film_actor 추가 /on/addFilmByActor -> 필름 검색 후 선택
-	        			3-2) film_actor 삭제 /on/removeFilmActor
+	        		3-2) film_actor 삭제 /on/removeFilmByActor
         		-->
         		
         		<!-- actor -->
@@ -102,6 +107,28 @@
         		<!-- film -->
         		<div>
         			<span class="fw-semibold fs-5 d-block mt-3 mb-3">출연작품</span>
+        			<div class="d-flex">
+        				<!-- 출연작품 추가 -->
+        				
+        				<!-- 영화 검색 -->
+        				<form id="formSearchFilm" class=" w-25" action="${pageContext.request.contextPath }/on/actorOne" method="get"> 
+        					<!-- film 검색 시 필요한 actorId도 같이 전송 -->
+        					<input type="hidden" name="actorId" value="${actor.actorId }">
+        					<input type="text" name="searchTitle" >
+        					<button id="btnSearchFilm" class="btn btn-warning">검색</button>
+        				</form>
+        				
+        				<!-- 영화 선택 -->
+        				<form id="formAddFilm" class=" w-100" action="${pageContext.request.contextPath }/on/addFilmByActor" method="post">
+        					<input type="hidden" name="actorId" value="${actor.actorId }">
+        					<select size="5" name="filmId" class="form-select w-100">
+        						<c:forEach var="sf" items="${searchFilmList }">
+	        						<option value="${sf.filmId }">${sf.title }</option>        							
+        						</c:forEach>
+        					</select>
+        					<button id="btnAddFilm" class="btn btn-warning mt-3 mb-3">추가</button>
+        				</form>
+        			</div>
         			<c:forEach var="f" items="${filmList }">
         				<a href="${pageContext.request.contextPath }/on/filmOne?filmId=${f.filmId}">${f.title },</a>&nbsp;
         			</c:forEach>
@@ -109,4 +136,15 @@
         	</div>
         </div>
     </body>
+    <script type="text/javascript">
+    	// film 타이틀을 검색하는 버튼
+    	$('#btnSearchFilm').click(function() {
+    		$('#formSearchFilm').submit();
+    	});
+    	
+    	// 출연작을 추가하는 버튼
+    	$('#btnAddFilm').click(function() {
+    		$('#formAddFilm').submit();
+    	});
+    </script>
 </html>
