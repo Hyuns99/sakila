@@ -14,7 +14,14 @@ import com.example.sakila.vo.Language;
 public class LanguageService {
 	@Autowired LanguageMapper languageMapper;
 	
-	public List<Language> getLanguageList() {
+	public int insertLanguage(Language language) {
+		return languageMapper.insertLanguage(language);
+		
+	}
+	
+	public List<Language> getLanguageList(int currentPage, int rowPerPage) {
+		// 페이지네이션
+		
 		return languageMapper.selectLanguageList();
 	}
 	

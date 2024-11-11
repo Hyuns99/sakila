@@ -90,7 +90,7 @@ public class FilmController {
 	@GetMapping("/on/addFilm")
 	public String addFilm(Model model) {
 		// languageList
-		List<Language> languageList = languageService.getLanguageList();
+		List<Language> languageList = languageService.getLanguageList(0, 0);
 		log.debug(languageList.toString());
 		model.addAttribute("languageList",languageList);
 		return "on/addFilm";
