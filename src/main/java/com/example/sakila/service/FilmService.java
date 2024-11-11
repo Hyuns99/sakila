@@ -1,5 +1,6 @@
 package com.example.sakila.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,33 @@ import com.example.sakila.vo.FilmForm;
 @Transactional
 public class FilmService {
 	@Autowired FilmMapper filmMapper;
+	
+	public int getFilmListByLastPage(Integer categoryId, int rowPerPage) {
+		int count = filmMapper.selectFilmCount();
+		int lastPage = count / rowPerPage;
+		if(lastPage % rowPerPage != 0) {
+			lastPage++;
+		}
+		return lastPage;
+	}
+	
+	public List<Map<String, Object>> getFilmList(Integer categoryId, int currentPage, int rowPerPage) {
+		Map<String, Object> paramMap = new HashMap<>();
+		if(categoryId == null || categoryId == 0) {
+			paramMap.put("categoryId", null);
+		} else {
+			paramMap.put("categoryId", categoryId);
+		}
+		int beginRow = (currentPage - 1) * rowPerPage;
+		paramMap.put("beginRow", beginRow);
+		paramMap.put("rowPerPage", rowPerPage);
+		
+		if(paramMap.get("categoryId") == null) {
+			return filmMapper.selectFilmList(paramMap);
+		} else {
+			return filmMapper.selectFilmListByCategory(paramMap);
+		}
+	}
 
 	public List<Film> getFilmListByTitle(String searchWord) {
 		return filmMapper.selectFilmListByTitle(searchWord);

@@ -30,7 +30,8 @@
        			<!-- 
         			● 1) film 상세 완료, 
         			1-1) film 수정 /on/modifyFilm,
-        			1-2) film 삭제 /on/removeFilm (film_category, actor가 출연한 flimList, film 삭제)
+        			1-2) film 삭제 /on/removeFilm 
+        			(인벤토리와 렌탈정보 확인 + film_category, actor가 출연한 flimList, film 삭제)
         			
         			2) film_category List 완료
         			2-1) film_category 추가 /on/addFilmCategory -> 카테고리 전체 목록에서 선택
@@ -39,6 +40,8 @@
         			● 3) film_actor List 완료,  
         			3-1) film_actor 추가 /on/addActorByFilm -> actor 검색 후 선택
         			3-2) film_actor 삭제 /on/removeFilmActor
+        			
+        			4) 인벤토리 정보
         		-->
        		
        			<!-- 필름하나의 상세 정보 -->

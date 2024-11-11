@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.sakila.mapper.FilmMapper">
+	<!-- 페이지네이션 -->
+	<select id="selectFilmCount" resultType="int">
+		SELECT COUNT(*)
+		FROM film
+	</select>
+
+	<!--  filmList(categoryId가 null이나 0아닐 때)  -->
+	<select id="selectFilmListByCategory" parameterType="Map" resultType="Map" >
+	    SELECT 
+	        f.film_id AS filmId,
+	        f.title AS title,
+	        f.release_year AS releaseYear,
+	        f.rental_duration AS rentalDuration,
+	        f.rental_rate AS rentalRate,
+	        f.length AS length,
+	        f.replacement_cost AS replacementCost,
+	        f.rating AS rating,
+	        fc.category_id AS categoryId
+	    FROM film f
+	    INNER JOIN film_category fc ON f.film_id = fc.film_id
+	    WHERE fc.category_id = #{categoryId}
+	    ORDER BY f.film_id DESC
+	    LIMIT #{beginRow}, #{rowPerPage}
+	</select>
+	
+	<!--  filmList(categoryId가 null이나 0일 때)  -->
+	<select id="selectFilmList" parameterType="Map" resultType="Map">
+		SELECT
+			film_id filmId
+			, title
+			, release_year releaseYear
+			, rental_duration rentalDuration
+			, rental_rate rentalRate
+			, length
+			, replacement_cost replacementCost
+			, rating 
+			
+		FROM film
+		ORDER BY film_id DESC
+		LIMIT #{beginRow}, #{rowPerPage}
+	</select>
+
+	<!-- actorOne에서 필름을 검색할 시 -->
 	<select id="selectFilmListByTitle" parameterType="String" resultType="com.example.sakila.vo.Film">
 		SELECT 
 			film_id filmId
@@ -9,6 +52,7 @@
 		WHERE title LIKE CONCAT('%',#{searchTitle},'%')
 	</select>
 	
+	<!-- 영화 생성 -->
 	<insert id="insertFilm" parameterType="com.example.sakila.vo.Film">
 		INSERT INTO film(
 			title
@@ -37,6 +81,7 @@
 		)
 	</insert>
 
+	<!-- 영화 상세보기 -->
 	<select id="selectFilmOne" parameterType="int" resultType="Map">
 		SELECT 
 			fi.film_id filmId
@@ -57,6 +102,8 @@
 		WHERE fi.film_id = #{filmId}
 		
 	</select>
+	
+	<!-- actorOne에서 보이는 filmList -->
 	<select id="selectFilmTitleListByActor" parameterType="int" resultType="com.example.sakila.vo.Film">
 		SELECT 
 			f.film_id filmId

@@ -51,11 +51,16 @@
         		<!-- 페이지네이션 -->
 				<nav aria-label="Page navigation example">
 				    <ul class="pagination justify-content-center">
+				    	<li class="page-item">
+			                <a class="page-link" href="${pageContext.request.contextPath}/on/actorList?currentPage=1">
+			                    <span aria-hidden="true">&laquo;</span>
+			                </a>
+			            </li>
 				        <!-- Previous Button -->
 				        <c:if test="${currentPage > 1}">
 				            <li class="page-item">
 				                <a class="page-link" href="${pageContext.request.contextPath}/on/actorList?currentPage=${currentPage - 1}" aria-label="Previous">
-				                    <span aria-hidden="true">&laquo;</span>
+				                    <span aria-hidden="true">이전</span>
 				                </a>
 				            </li>
 				        </c:if>
@@ -73,10 +78,15 @@
 				        <c:if test="${currentPage < lastPage}">
 				            <li class="page-item">
 				                <a class="page-link" href="${pageContext.request.contextPath}/on/actorList?currentPage=${currentPage + 1}" aria-label="Next">
-				                    <span aria-hidden="true">&raquo;</span>
+				                    <span aria-hidden="true">다음</span>
 				                </a>
 				            </li>
 				        </c:if>
+				        <li class="page-item">
+			                <a class="page-link" href="${pageContext.request.contextPath}/on/actorList?currentPage=${lastPage}">
+			                    <span aria-hidden="true">&raquo;</span>
+			                </a>
+			            </li>
 				    </ul>
 				</nav>
         	</div>

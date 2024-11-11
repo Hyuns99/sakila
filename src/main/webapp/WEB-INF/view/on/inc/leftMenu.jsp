@@ -24,9 +24,23 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <a href="${pageContext.request.contextPath}/on/branch/add" class="pb-3">Store 추가</a>
+                	<!-- 
+                		storeList : StoreMapper.selectStoreList() : Map - store x staff x adress
+                		addStore : StoreService.getStoreList() : List<Map>
+                		GET - /on/storeList -> storeController.storeList() -> storeList.jsp
+                	 -->
+                    <a href="${pageContext.request.contextPath}/on/storeList" class="pb-3">Store 리스트</a>
                     <br>
-                    <a href="${pageContext.request.contextPath}/on/branch/edit">Store 수정</a>
+                    <a href="${pageContext.request.contextPath}/on/addStore">Store 추가</a>
+                    <!-- 
+                    	Get - /on/addStore 
+                    	- StoreController.addStore() : staffList 모델추가, search주소검색 결과 모델추가 -> addStore.jsp 
+                    	
+                    	StoreMapper.insertStore() : Integer
+                    	StoreService.addStore() : Integer
+                    	Post - /on/addStore 
+                    	- StoreController.addStore(Store) - 
+                     -->
                 </div>
             </div>
         </div>
@@ -69,12 +83,16 @@
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                     <i class="bi bi-film me-2"></i>
-                    영화관
+                    영화 관리
                 </button>
             </h2>
             <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <a href="${pageContext.request.contextPath}/on/FilmList" class="pb-3">영화 리스트</a>
+                    <a href="${pageContext.request.contextPath}/on/languageList" class="pb-3">언어 리스트</a>
+                    <br>
+                    <a href="${pageContext.request.contextPath}/on/addLanguage" class="pb-3">언어 추가</a>
+                    <br>
+                    <a href="${pageContext.request.contextPath}/on/filmList" class="pb-3">영화 리스트</a>
                     <br>
                     <a href="${pageContext.request.contextPath}/on/addFilm">영화 추가</a>
                 </div>
