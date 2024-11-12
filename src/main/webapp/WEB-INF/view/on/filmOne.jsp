@@ -96,7 +96,7 @@
         			</tr>
         		</table> 
         		<div class="mb-3">
-        			<a href="${pageContext.request.contextPath }/on/" class="btn btn-warning">수정</a>
+        			<a href="${pageContext.request.contextPath }/on/modifyFilm?filmId=${film.filmId}" class="btn btn-warning">수정</a>
         			<a href="${pageContext.request.contextPath }/on/removeFilm?filmId=${film.filmId}" class="btn btn-danger">삭제</a>
         			<span class="text-danger">${removeFilmMsg }</span>
         		</div>       			

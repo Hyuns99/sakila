@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.sakila.mapper.FilmActorMapper;
+import com.example.sakila.mapper.FilmCategoryMapper;
 import com.example.sakila.mapper.FilmMapper;
 import com.example.sakila.vo.Film;
 import com.example.sakila.vo.FilmForm;
@@ -16,10 +18,23 @@ import com.example.sakila.vo.FilmForm;
 @Transactional
 public class FilmService {
 	@Autowired FilmMapper filmMapper;
+	@Autowired FilmActorMapper filmActorMapper;
+	@Autowired FilmCategoryMapper filmCategoryMapper;
 	
-	public Integer removeFilmByKey(Integer filmId) {
+	public Integer updateFilmByKey(Film film) {
+		return filmMapper.updateFilm(film);
+	}
+	
+	public void removeFilmByKey(Integer filmId) {
+		// film_category, film_actor, film 삭제 하나라도 실패하면 안됨
+		// film_category 삭제
+		filmCategoryMapper.deleteFilmCategoryByFilm(filmId);
+		// film_actor 삭제
+		filmActorMapper.deleteFilmActorByFilm(filmId);
 		
-		return filmMapper.deleteFilmByKey(filmId);
+		// film 삭제
+		filmMapper.deleteFilmByKey(filmId);
+		
 	}
 	
 	public int getFilmListByLastPage(Integer categoryId, int rowPerPage) {

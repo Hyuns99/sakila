@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.sakila.mapper.FilmActorMapper">
+	<!-- 필름삭제 시 배우 삭제 -->
+	<delete id="deleteFilmActorByFilm" parameterType="int">
+		DELETE FROM film_actor
+		WHERE film_id = #{filmId}	
+	</delete>
 	<!-- 배우 삭제 시 모든 영화리스트 삭제 -->
 	<delete id="deleteFileByActor" parameterType="int">
 		DELETE FROM film_actor

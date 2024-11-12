@@ -35,11 +35,34 @@ public class FilmController {
 	@Autowired CategoryService categoryService;
 	@Autowired InventoryService inventoryService;
 	
+	@PostMapping("/on/modifyFilm")
+	public String updateFilm(Film film) {
+		int row = filmService.updateFilmByKey(film);
+		
+		log.debug("filmId : " + film.getFilmId());
+		return "redirect:/on/filmOne?filmId=" + film.getFilmId();
+	}
+	@GetMapping("/on/modifyFilm")
+	public String updateFilm(Model model,
+							@RequestParam int filmId) {
+		Map<String, Object> film = filmService.getFilmOne(filmId);
+		model.addAttribute("film",film);
+		log.debug("filmId : " + filmId);
+		
+		List<Language> languageList = languageService.getLanguageList(0, 0);
+		log.debug(languageList.toString());
+		model.addAttribute("languageList",languageList);
+		
+		return "on/modifyFilm";
+	}
+	
 	@GetMapping("/on/removeFilm")
 	public String removeFilm(Model model
 							, @RequestParam Integer filmId) {
+		// 필름이 인벤토리에 등록되어 있다면 삭제 불가
 		Integer count = inventoryService.getCountInventoryByFilm(filmId);
 		if(count != 0) {
+			// 메세지 추가 할려면 ... 중복코드 리팩토링 이슈발생
 			Map<String, Object> film = filmService.getFilmOne(filmId);
 			log.debug(film.toString());
 			
@@ -49,8 +72,13 @@ public class FilmController {
 			model.addAttribute("actorList", actorList);
 			model.addAttribute("removeFilmMsg","film이 inventory에 존재합니다");
 			return "on/filmOne";
+			
+			//return "redirect:/on/filmOne"; // 메세지 추가는 힘들다
 		}
-		Integer row = filmService.removeFilmByKey(filmId);
+		// 1) 
+
+		filmService.removeFilmByKey(filmId);
+		
 		
 		return "redirect:/on/filmList";
 	}
@@ -122,7 +150,6 @@ public class FilmController {
 	@GetMapping("/on/filmOne")
 	public String filmOne(Model model, @RequestParam int filmId) {
 		Map<String, Object> film = filmService.getFilmOne(filmId);
-		log.debug(film.toString());
 		
 		List<Actor> actorList = actorService.getActorListByFilm(filmId);
 		

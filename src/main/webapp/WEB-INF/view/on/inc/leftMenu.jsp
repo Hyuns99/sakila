@@ -90,6 +90,10 @@
             </h2>
             <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
+                    <a href="${pageContext.request.contextPath}/on/categoryList" class="pb-3">장르 리스트</a>
+                    <br>
+                    <a href="${pageContext.request.contextPath}/on/addCategory" class="pb-3">장르 추가</a>
+                    <br>
                     <a href="${pageContext.request.contextPath}/on/languageList" class="pb-3">언어 리스트</a>
                     <br>
                     <a href="${pageContext.request.contextPath}/on/addLanguage" class="pb-3">언어 추가</a>
