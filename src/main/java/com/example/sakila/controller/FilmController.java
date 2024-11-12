@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.sakila.mapper.InventoryMapper;
 import com.example.sakila.service.ActorService;
 import com.example.sakila.service.CategoryService;
 import com.example.sakila.service.FilmService;
+import com.example.sakila.service.InventoryService;
 import com.example.sakila.service.LanguageService;
 import com.example.sakila.vo.Actor;
 import com.example.sakila.vo.Category;
@@ -31,6 +33,27 @@ public class FilmController {
 	@Autowired ActorService actorService;
 	@Autowired LanguageService languageService;
 	@Autowired CategoryService categoryService;
+	@Autowired InventoryService inventoryService;
+	
+	@GetMapping("/on/removeFilm")
+	public String removeFilm(Model model
+							, @RequestParam Integer filmId) {
+		Integer count = inventoryService.getCountInventoryByFilm(filmId);
+		if(count != 0) {
+			Map<String, Object> film = filmService.getFilmOne(filmId);
+			log.debug(film.toString());
+			
+			List<Actor> actorList = actorService.getActorListByFilm(filmId);
+			
+			model.addAttribute("film",film);
+			model.addAttribute("actorList", actorList);
+			model.addAttribute("removeFilmMsg","film이 inventory에 존재합니다");
+			return "on/filmOne";
+		}
+		Integer row = filmService.removeFilmByKey(filmId);
+		
+		return "redirect:/on/filmList";
+	}
 	
 	@GetMapping("/on/filmList")
 	public String filmList(Model model 

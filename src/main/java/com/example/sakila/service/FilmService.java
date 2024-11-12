@@ -17,6 +17,11 @@ import com.example.sakila.vo.FilmForm;
 public class FilmService {
 	@Autowired FilmMapper filmMapper;
 	
+	public Integer removeFilmByKey(Integer filmId) {
+		
+		return filmMapper.deleteFilmByKey(filmId);
+	}
+	
 	public int getFilmListByLastPage(Integer categoryId, int rowPerPage) {
 		int count = filmMapper.selectFilmCount();
 		int lastPage = count / rowPerPage;

@@ -30,7 +30,7 @@
        			<!-- 
         			● 1) film 상세 완료, 
         			1-1) film 수정 /on/modifyFilm,
-        			1-2) film 삭제 /on/removeFilm 
+        			● 1-2) film 삭제 /on/removeFilm 
         			(인벤토리와 렌탈정보 확인 + film_category, actor가 출연한 flimList, film 삭제)
         			
         			2) film_category List 완료
@@ -97,7 +97,8 @@
         		</table> 
         		<div class="mb-3">
         			<a href="${pageContext.request.contextPath }/on/" class="btn btn-warning">수정</a>
-        			<a href="${pageContext.request.contextPath }/on/" class="btn btn-danger">삭제</a>
+        			<a href="${pageContext.request.contextPath }/on/removeFilm?filmId=${film.filmId}" class="btn btn-danger">삭제</a>
+        			<span class="text-danger">${removeFilmMsg }</span>
         		</div>       			
         		
         		<div>

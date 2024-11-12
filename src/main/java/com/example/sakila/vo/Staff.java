@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class Staff {
-	private int staffId; // pk
+	private Integer staffId; // pk
 	private String firstName;
 	private String lastName;
-	private int addressId; // 외래키
+	private Integer addressId; // 외래키
 	private String email;
-	private int storeId; // 외래키
-	private int active;
+	private Integer storeId; // 외래키
+	private Integer active;
 	private String address;
 	private String userName; // 닉네임
 	private String password;

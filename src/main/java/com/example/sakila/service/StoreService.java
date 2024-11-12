@@ -1,6 +1,7 @@
 package com.example.sakila.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,10 @@ import com.example.sakila.vo.Store;
 @Transactional
 public class StoreService {
 	@Autowired StoreMapper storeMapper;
+	
+	public Map<String, Object> getStoreListByStaffByAddress(Map<String, Object> map) {
+	    return storeMapper.selectStoreListByStaffByAddress();
+	}
 	
 	public List<Store> getStoreList() {
 		return storeMapper.selectStoreList();

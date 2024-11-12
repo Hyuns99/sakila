@@ -10,7 +10,6 @@ import com.example.sakila.vo.Staff;
 @Mapper
 public interface StaffMapper {
 	
-	
 	int updateStaff(Staff staff); // 업데이트문 하나로 모든 컬럼을 개별수정 가능
 	
 	int selectStaffCount();

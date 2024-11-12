@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.sakila.mapper.FilmMapper">
+	<!-- 삭제 -->
+	<delete id="deleteFilmByKey" parameterType="Integer">
+		DELETE FROM film
+		WHERE film_id = #{filmId}
+	</delete>
+
 	<!-- 페이지네이션 -->
 	<select id="selectFilmCount" resultType="int">
 		SELECT COUNT(*)
