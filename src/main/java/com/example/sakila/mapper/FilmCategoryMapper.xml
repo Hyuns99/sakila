@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.sakila.mapper.FilmCategoryMapper">
+	<!-- filmOne에서 출력될 카테고리 -->
+	<select id="selectFilmCategoryListByFilm" parameterType="Integer" resultType="Map">
+		select fc.film_id filmId
+		, fc.category_id categoryId
+		, c.name name
+		from film_category fc inner join category c
+		on fc.category_id = c.category_id
+		where fc.film_id = #{filmId}
+	</select>
+
 	<delete id="deleteFilmCategoryByFilm" parameterType="Integer">
 		DELETE FROM film_category
 		WHERE film_id = #{filmId}

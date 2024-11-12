@@ -10,7 +10,7 @@ import com.example.sakila.vo.Store;
 @Mapper
 public interface StoreMapper {
 	// storeList 출력
-	Map<String, Object> selectStoreListByStaffByAddress();
+	Map<String, Object> selectStoreListByStaffByAddress(Map<String, Object> map);
 	
 	// staffList 출력
 	List<Store> selectStoreList();

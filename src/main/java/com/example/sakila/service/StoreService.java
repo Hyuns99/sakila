@@ -16,7 +16,7 @@ public class StoreService {
 	@Autowired StoreMapper storeMapper;
 	
 	public Map<String, Object> getStoreListByStaffByAddress(Map<String, Object> map) {
-	    return storeMapper.selectStoreListByStaffByAddress();
+	    return storeMapper.selectStoreListByStaffByAddress(map);
 	}
 	
 	public List<Store> getStoreList() {

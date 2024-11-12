@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.sakila.service.StoreService;
+import com.example.sakila.vo.Store;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -21,7 +23,7 @@ public class StoreController {
 	
 	@GetMapping("/on/storeList")
 	public String selectStoreList(Model model
-								, @RequestParam(required = false) Integer storeId
+								, HttpSession session
 								, @RequestParam(defaultValue = "1") int currentPage
 								, @RequestParam(defaultValue = "10") int rowPerPage) {
 	    // 필요한 시작 행 계산
@@ -31,7 +33,9 @@ public class StoreController {
 	    Map<String, Object> map = new HashMap<>();
 	    map.put("beginRow", beginRow);
 	    map.put("rowPerPage", rowPerPage);
-	    map.put("storeId", storeId);
+	    
+	    Integer storeId = (Integer) session.getAttribute("storeId");
+	    
 	    log.debug("storeId : " + storeId);
 	    
 	    // 서비스 호출

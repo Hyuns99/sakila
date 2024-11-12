@@ -29,11 +29,11 @@
         		<h2 class="mt-3 fw-semibold">영화 상세보기</h2>
        			<!-- 
         			● 1) film 상세 완료, 
-        			1-1) film 수정 /on/modifyFilm,
+        			● 1-1) film 수정 /on/modifyFilm,
         			● 1-2) film 삭제 /on/removeFilm 
         			(인벤토리와 렌탈정보 확인 + film_category, actor가 출연한 flimList, film 삭제)
         			
-        			2) film_category List 완료
+        			● 2) film_category List 완료
         			2-1) film_category 추가 /on/addFilmCategory -> 카테고리 전체 목록에서 선택
         			2-3) film_category 삭제 /on/removeFilmCategory
         			
@@ -102,14 +102,56 @@
         		</div>       			
         		
         		<div>
+        			<span class="fw-semibold fs-5">영화장르</span>
+        			<!-- 장르 추가, 장르 삭제 필요 -->
+        			<!-- 이미 있는 카테고리를 선택한 경우 경고창 호출 -->
+        			<form action="" method="post">
+        				<select name="categoryId" id="categoryId">
+        					<option value="">선택해주세요</option>
+        					<!-- model.allCategoryList 받아오기 -->
+        					<c:forEach var="ac" items="${allCategoryList }">        					
+	        					<option value="${ac.categoryId }">${ac.name }</option>
+        					</c:forEach>
+        				</select>
+        				<button type="button" class="btn btn-warning">추가</button>
+        			</form>
+        			
+        			<!-- filmCategoryList -->
+        			<c:forEach var="fc" items="${filmCategoryList }">
+       					<div>
+       						${fc.name }
+	        				<a href="" class="btn btn-warning">삭제</a>       						        					
+       					</div>
+       				</c:forEach>
+        		</div>
+        		<div>
         			<span class="fw-semibold fs-5">출연배우</span>
         			<!-- 배우 추가, 배우 삭제 필요 -->
         			<div>
+        				<div class="d-flex">
+        					<!-- 검색 폼 -->
+        					<form action="" method="post"> 
+	        					<input type="text" name="searchName">
+	        					<button type="button" class="btn btn-warning">검색</button>
+	        				</form>
+	        			
+	        				<!-- 선택 폼 -->
+	        				<form action="" method="post">
+		        				<select name="categoryId" id="categoryId">
+		        					<option value="">선택해주세요</option>
+		        					<!-- model.actorList 받아오기 -->
+		        					<option value=""></option>
+		        				</select>
+		        				<button type="button" class="btn btn-warning">추가</button>
+		        			</form>
+        				</div>
+        				
         				<c:forEach var="a" items="${actorList }">
         					<div>
 		        				<a href="${pageContext.request.contextPath }/on/actorOne?actorId=${a.actorId}" >
 		        					${a.firstName } ${a.lastName }
-		        				</a>        						        					
+		        				</a> 
+		        				<a href=""  class="btn btn-warning">삭제</a>       						        					
         					</div>
         				</c:forEach>
         			</div>

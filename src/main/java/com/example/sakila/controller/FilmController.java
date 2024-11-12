@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.sakila.mapper.FilmCategoryMapper;
 import com.example.sakila.mapper.InventoryMapper;
 import com.example.sakila.service.ActorService;
 import com.example.sakila.service.CategoryService;
+import com.example.sakila.service.FilmCategoryService;
 import com.example.sakila.service.FilmService;
 import com.example.sakila.service.InventoryService;
 import com.example.sakila.service.LanguageService;
@@ -34,6 +36,7 @@ public class FilmController {
 	@Autowired LanguageService languageService;
 	@Autowired CategoryService categoryService;
 	@Autowired InventoryService inventoryService;
+	@Autowired FilmCategoryService filmCategoryService;
 	
 	@PostMapping("/on/modifyFilm")
 	public String updateFilm(Film film) {
@@ -148,13 +151,33 @@ public class FilmController {
 	}
 	
 	@GetMapping("/on/filmOne")
-	public String filmOne(Model model, @RequestParam int filmId) {
-		Map<String, Object> film = filmService.getFilmOne(filmId);
+	public String filmOne(Model model
+							, @RequestParam int filmId
+							, @RequestParam(required = false) String searchName) {
 		
+		/*
+		 *  1) 현재필름 정보
+		 *  2) 전체 카테고리
+		 *  3) 현재필름의 카테고리
+		 *  4) 검색 배우 리스트(searchName이 null이 아닐때)
+		 *  5) 현재필름의 배우 리스트
+		 */
+		
+		// 1)
+		Map<String, Object> film = filmService.getFilmOne(filmId);
+		// 2) 
+		List<Category> allCategoryList = categoryService.getCategoryList();
+		// 3)
+		List<Map<String, Object>> filmCategoryList = filmCategoryService.getFilmCategoryListByFilm(filmId);
+		// 5)
 		List<Actor> actorList = actorService.getActorListByFilm(filmId);
 		
-		model.addAttribute("film",film);
-		model.addAttribute("actorList", actorList);
+		model.addAttribute("film",film); // 1
+		model.addAttribute("allCategoryList",allCategoryList); // 2
+		model.addAttribute("filmCategoryList",filmCategoryList); // 3
+		model.addAttribute("actorList", actorList); // 5
+		
+		
 		
 		return "on/filmOne";
 	}

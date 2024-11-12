@@ -26,45 +26,18 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h2 class="mt-3 fw-semibold">Store 리스트</h2>
-        		
+        		<h2 class="mt-3 fw-semibold">장르 리스트</h2>
         		<table class="table table-bordered mt-3">
         			<tr>
-        				<td>storeId</td>
-        				<td>managerStaffId</td>
-        				<td>cityId</td>
-        				<td>addressId</td>
-        				<td>address</td>
-        				<td>address2</td>
-        				<td>district</td>
-        				<td>postalCode</td>
-        				<td>phone</td>
-        				<td>firstName</td>
-        				<td>lastName</td>
-        				<td>email</td>
-        				<td>username</td>
-        				<td>addressLastUpdate</td>
-        				<td>삭제</td>
+        				<td>categoryId</td>
+        				<td>name</td>
+        				<td>lastUpdate</td>
         			</tr>
-        			<c:forEach var="s" items="${storeList }">
+        			<c:forEach var="c" items="${categoryList }">
         				<tr>
-        					<td>${s.storeId }</td>
-	        				<td>${s.managerStaffId }</td>
-	        				<td>${s.cityId }</td>
-	        				<td>${s.addressId }</td>
-	        				<td>${s.address }</td>
-	        				<td>${s.address2 }</td>
-	        				<td>${s.district }</td>
-	        				<td>${s.postalCode }</td>
-	        				<td>${s.phone }</td>
-	        				<td>${s.firstName }</td>
-	        				<td>${s.lastName }</td>
-	        				<td>${s.email }</td>
-	        				<td>${s.username }</td>
-	        				<td>${s.addressLastUpdate }</td>
-	        				<td>
-	        					<a href="" class="btn btn-danger">삭제</a>
-	        				</td>
+        					<td>${c.categoryId }</td>
+        					<td>${c.name }</td>
+        					<td>${c.lastUpdate }</td>
         				</tr>
         			</c:forEach>
         		</table>
