@@ -34,7 +34,7 @@
         			(인벤토리와 렌탈정보 확인 + film_category, actor가 출연한 flimList, film 삭제)
         			
         			● 2) film_category List 완료
-        			2-1) film_category 추가 /on/addFilmCategory -> 카테고리 전체 목록에서 선택
+        			● 2-1) film_category 추가 /on/addFilmCategory -> 카테고리 전체 목록에서 선택(동일한 카테고리를 한번 더 추가하면 500에러발생 : PK중복에러)
         			2-3) film_category 삭제 /on/removeFilmCategory
         			
         			● 3) film_actor List 완료,  
@@ -105,7 +105,8 @@
         			<span class="fw-semibold fs-5">영화장르</span>
         			<!-- 장르 추가, 장르 삭제 필요 -->
         			<!-- 이미 있는 카테고리를 선택한 경우 경고창 호출 -->
-        			<form action="" method="post">
+        			<form id="formFilmCategory" action="${pageContext.request.contextPath }/on/addFilmCategory" method="post">
+        				<input type="hidden" name="filmId" value="${film.filmId }">
         				<select name="categoryId" id="categoryId">
         					<option value="">선택해주세요</option>
         					<!-- model.allCategoryList 받아오기 -->
@@ -113,7 +114,7 @@
 	        					<option value="${ac.categoryId }">${ac.name }</option>
         					</c:forEach>
         				</select>
-        				<button type="button" class="btn btn-warning">추가</button>
+        				<button type="button" id="btnFilmCategory" class="btn btn-warning">추가</button>
         			</form>
         			
         			<!-- filmCategoryList -->
@@ -159,4 +160,13 @@
         	</div>
         </div>
     </body>
+    <script type="text/javascript">
+    	$('#btnFilmCategory').click(function(){
+    		if($('#categoryId').val() == '') {
+    			alert('장르를 선택해주세요')
+    		} else {
+    			$('#formFilmCategory').submit()
+    		}
+    	})
+    </script>
 </html>

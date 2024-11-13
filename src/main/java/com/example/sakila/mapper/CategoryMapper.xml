@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.sakila.mapper.CategoryMapper">
+	<!-- 장르 추가 -->
+	<insert id="insertCategory" parameterType="com.example.sakila.vo.Category">
+		INSERT INTO category(
+			category_id categoryId
+			, name name
+			, last_update lastUpdate
+		) VALUES (
+			#{categoryId}
+			, #{name}
+			, #{lastUpdate}
+		)
+	</insert>
+
+	<!-- count -->
+	<select id="selectCategoryCount" parameterType="com.example.sakila.vo.Category">
+		SELECT COUNT(*) FROM category
+	</select>
+
+	<!-- categoryList -->
 	<select id="selectCategoryList" parameterType="com.example.sakila.vo.Category">
 		SELECT 
 			category_id categoryId

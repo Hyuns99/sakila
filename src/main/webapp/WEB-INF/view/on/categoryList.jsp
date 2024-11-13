@@ -34,13 +34,53 @@
         				<td>lastUpdate</td>
         			</tr>
         			<c:forEach var="c" items="${categoryList }">
-        				<tr>
-        					<td>${c.categoryId }</td>
-        					<td>${c.name }</td>
-        					<td>${c.lastUpdate }</td>
-        				</tr>
+	       				<tr>
+	       					<td>${c.categoryId }</td>
+	       					<td>${c.name }</td>
+	       					<td>${c.lastUpdate }</td>
+	       				</tr>
         			</c:forEach>
         		</table>
+        		<nav aria-label="Page navigation example">
+				    <ul class="pagination justify-content-center">
+				    	<li class="page-item">
+			                <a class="page-link" href="${pageContext.request.contextPath}/on/categoryList?currentPage=1">
+			                    <span aria-hidden="true">&laquo;</span>
+			                </a>
+			            </li>
+				        <!-- Previous Button -->
+				        <c:if test="${currentPage > 1}">
+				            <li class="page-item">
+				                <a class="page-link" href="${pageContext.request.contextPath}/on/categoryList?currentPage=${currentPage - 1}" aria-label="Previous">
+				                    <span aria-hidden="true">이전</span>
+				                </a>
+				            </li>
+				        </c:if>
+				
+				        <!-- Page Numbers -->
+				        <c:forEach var="page" begin="${startPage }" end="${endPage}">
+				            <li class="page-item ${page == currentPage ? 'active' : ''}">
+				                <a class="page-link" href="${pageContext.request.contextPath}/on/categoryList?currentPage=${page}">
+				                    ${page}
+				                </a>
+				            </li>
+				        </c:forEach>
+				
+				        <!-- Next Button -->
+				        <c:if test="${currentPage < lastPage}">
+				            <li class="page-item">
+				                <a class="page-link" href="${pageContext.request.contextPath}/on/categoryList?currentPage=${currentPage + 1}" aria-label="Next">
+				                    <span aria-hidden="true">다음</span>
+				                </a>
+				            </li>
+				        </c:if>
+				        <li class="page-item">
+			                <a class="page-link" href="${pageContext.request.contextPath}/on/categoryList?currentPage=${lastPage}">
+			                    <span aria-hidden="true">&raquo;</span>
+			                </a>
+			            </li>
+				    </ul>
+				</nav>
         	</div>
         </div>
     </body>

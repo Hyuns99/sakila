@@ -14,6 +14,19 @@ import com.example.sakila.vo.Category;
 public class CategoryService {
 	@Autowired CategoryMapper categoryMapper;
 	
+	public int getAddCategory(Category category) {
+		return categoryMapper.insertCategory(category);
+	}
+	
+	public int getCategoryCount(int rowPerPage) {
+		int count = categoryMapper.selectCategoryCount();
+		int lastPage = count / rowPerPage;
+		if(lastPage % count != 0) {
+			lastPage++;
+		}
+		return lastPage;
+	}
+	
 	public List<Category> getCategoryList() {
 		return categoryMapper.selectCategoryList();
 	}
