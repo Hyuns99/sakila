@@ -19,7 +19,7 @@
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     <i class="bi bi-shop me-2"></i>
-                    Store 관리
+                    Store & Inventory 관리
                 </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -32,8 +32,6 @@
                     <a href="${pageContext.request.contextPath}/on/storeList" class="pb-3">Store 리스트</a>
                     <br>
                     <a href="${pageContext.request.contextPath}/on/addStore" class="pb-3">Store 추가</a>
-                    <br>
-                    <a href="${pageContext.request.contextPath}/on/addInventory">Inventory 추가</a>
                     <!-- 
                     	Get - /on/addStore 
                     	- StoreController.addStore() : staffList 모델추가, search주소검색 결과 모델추가 -> addStore.jsp 

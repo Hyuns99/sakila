@@ -20,6 +20,19 @@ public class InventoryController {
 	@Autowired InventoryService inventoryService;
 	@Autowired InventoryMapper inventoryMapper;
 	
+	@GetMapping("/on/addInventory")
+	public String addInventory(Model model
+								, @RequestParam Integer storeId
+								, @RequestParam (required = false) String searchTitle) {
+		model.addAttribute("storeId",storeId);
+		
+		if(searchTitle != null && !searchTitle.equals("")) {
+			// 영화 검색 목록 모델 추가 
+		}
+		
+		return "on/addInventory";
+	}
+	
 	@GetMapping("/on/inventoryList")
 	public String inventoryList(Model model
 								, @RequestParam Integer storeId
@@ -30,8 +43,8 @@ public class InventoryController {
 		// 페이지네이션
 		Integer pageSize = 5;
 		Integer lastPage = inventoryService.getInventoryCount(rowPerPage);
-		int startPage = Math.max(1, currentPage - pageSize / 2);
-		int endPage = Math.min(lastPage, startPage + pageSize - 1); 
+		Integer startPage = Math.max(1, currentPage - pageSize / 2);
+		Integer endPage = Math.min(lastPage, startPage + pageSize - 1); 
 
 		// 페이지 범위가 부족할 경우 보정
 		if (endPage - startPage < pageSize - 1) {
