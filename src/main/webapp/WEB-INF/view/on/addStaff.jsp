@@ -117,7 +117,7 @@
     		} else if($('#lastName').val() == "" || $('#lastName').val() == null) {
     			alert("lastName을 입력하세요");
     		} else if($('#email').val() == "" || $('#email').val() == null) {
-    			alert("lastName을 입력하세요");
+    			alert("email을 입력하세요");
     		} else if($('#userName').val() == "" || $('#userName').val() == null) {
     			alert("userName을 입력하세요");
     		} else {

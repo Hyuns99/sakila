@@ -37,6 +37,7 @@
         				<td class="fw-semibold">inventoryId</td>
         				<td class="fw-semibold">(filmId)title</td>
         				<td class="fw-semibold">lastUpdate</td>
+        				<td>삭제</td>
         			</tr>
         			<c:forEach var="iv" items="${inventoryList }">
         				<tr>
@@ -47,6 +48,12 @@
         						</a>
         					</td>
         					<td>${iv.lastUpdate }</td>
+        					<td>
+	        					<a href="${pageContext.request.contextPath}/on/removeInventoryByKey?inventoryId=${iv.inventoryId}&storeId=${storeId}" 
+	        						class="btn btn-danger">
+	        						삭제
+	        					</a>
+	        				</td>
         				</tr>
         			</c:forEach>
         		</table>

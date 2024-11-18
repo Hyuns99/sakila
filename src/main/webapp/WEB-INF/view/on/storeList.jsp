@@ -36,7 +36,7 @@
         				<td>addressLastUpdate</td>
         				<td>Inventory List</td>
         				<td>Inventory 추가</td>
-        				<td>삭제</td>
+        				
         			</tr>
         			<c:forEach var="s" items="${storeList }">
         				<tr>
@@ -50,9 +50,6 @@
         					<td>
         						<a href="${pageContext.request.contextPath}/on/addInventory?storeId=${s.storeId}" class="btn btn-outline-danger">인벤토리 추가</a>
         					</td>
-	        				<td>
-	        					<a href="" class="btn btn-danger">삭제</a>
-	        				</td>
         				</tr>
         			</c:forEach>
         		</table>

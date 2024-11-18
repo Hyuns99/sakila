@@ -63,7 +63,6 @@
         </div>
 
         <!-- 고객 관리 -->
-        <!-- 
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -73,13 +72,12 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <a href="${pageContext.request.contextPath}/on/storeList" class="pb-3">고객 리스트</a>
+                    <a href="${pageContext.request.contextPath}/on/customerList" class="pb-3">고객 리스트</a>
                     <br>
-                    <a href="${pageContext.request.contextPath}/on/addStore">고객 추가</a>
+                    <a href="${pageContext.request.contextPath}/on/addCustomer">고객 추가</a>
                 </div>
             </div>
         </div>
-         -->
         <!-- 영화 관리 -->
         <div class="accordion-item">
             <h2 class="accordion-header">

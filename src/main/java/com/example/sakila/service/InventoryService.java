@@ -9,11 +9,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.sakila.mapper.InventoryMapper;
+import com.example.sakila.vo.Inventory;
 
 @Service
 @Transactional
 public class InventoryService {
 	@Autowired InventoryMapper inventoryMapper;
+	
+	public Integer removeInventoryByKey(Integer inventoryId) {
+		return inventoryMapper.deleteInventoryByKey(inventoryId);
+	}
+	
+	public Integer addInventory(Inventory inventory) {
+		return inventoryMapper.insertInventory(inventory);
+	}
 	
 	public Integer getInventoryCount(Integer rowPerPage) {
 		// 페이지네이션
