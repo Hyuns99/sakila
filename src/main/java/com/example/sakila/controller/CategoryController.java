@@ -1,6 +1,8 @@
 package com.example.sakila.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,6 @@ public class CategoryController {
 								, @RequestParam (defaultValue = "1") int currentPage
 								, @RequestParam (defaultValue = "10") int rowPerPage) {
 		
-		List<Category> categoryList = categoryService.getCategoryList();
 		
 		int beginRow = (currentPage - 1) * rowPerPage;
 		int lastPage = categoryService.getCategoryCount(rowPerPage);
@@ -43,7 +44,13 @@ public class CategoryController {
 		if (endPage - startPage < pageSize - 1) {
 		    startPage = Math.max(1, endPage - pageSize + 1);
 		}
+		
+		Map<String, Object> params = new HashMap<>();
+		params.put("beginRow", beginRow);
+		params.put("rowPerPage", rowPerPage);
+		List<Category> categoryList = categoryService.getCategoryList(params);
 		log.debug("startPage : " + startPage);
+		log.debug("rowPerPage : " + rowPerPage);
 		log.debug("endPage : " + endPage);
 		log.debug("lastPage : " + lastPage);
 		

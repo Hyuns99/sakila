@@ -48,15 +48,6 @@
 			                    <span aria-hidden="true">&laquo;</span>
 			                </a>
 			            </li>
-				        <!-- Previous Button -->
-				        <c:if test="${currentPage > 1}">
-				            <li class="page-item">
-				                <a class="page-link" href="${pageContext.request.contextPath}/on/categoryList?currentPage=${currentPage - 1}" aria-label="Previous">
-				                    <span aria-hidden="true">이전</span>
-				                </a>
-				            </li>
-				        </c:if>
-				
 				        <!-- Page Numbers -->
 				        <c:forEach var="page" begin="${startPage }" end="${endPage}">
 				            <li class="page-item ${page == currentPage ? 'active' : ''}">
@@ -66,14 +57,6 @@
 				            </li>
 				        </c:forEach>
 				
-				        <!-- Next Button -->
-				        <c:if test="${currentPage < lastPage}">
-				            <li class="page-item">
-				                <a class="page-link" href="${pageContext.request.contextPath}/on/categoryList?currentPage=${currentPage + 1}" aria-label="Next">
-				                    <span aria-hidden="true">다음</span>
-				                </a>
-				            </li>
-				        </c:if>
 				        <li class="page-item">
 			                <a class="page-link" href="${pageContext.request.contextPath}/on/categoryList?currentPage=${lastPage}">
 			                    <span aria-hidden="true">&raquo;</span>

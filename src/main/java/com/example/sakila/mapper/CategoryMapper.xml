@@ -3,7 +3,7 @@
 <mapper namespace="com.example.sakila.mapper.CategoryMapper">
 	<!-- 장르 추가 -->
 	<insert id="insertCategory" parameterType="com.example.sakila.vo.Category">
-		INSERT INTO category(
+		INSERT INTO category (
 			category_id categoryId
 			, name name
 			, last_update lastUpdate
@@ -20,11 +20,12 @@
 	</select>
 
 	<!-- categoryList -->
-	<select id="selectCategoryList" parameterType="com.example.sakila.vo.Category">
-		SELECT 
-			category_id categoryId
-			, name name
-			, last_update lastUpdate
-		FROM category
+	<select id="selectCategoryList" parameterType="Map" resultType="com.example.sakila.vo.Category">
+		SELECT category_id categoryId,
+           name AS name,
+           last_update lastUpdate
+	    FROM category
+	    ORDER BY category_id DESC
+		LIMIT #{beginRow}, #{rowPerPage}
 	</select>
 </mapper>
