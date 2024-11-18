@@ -26,7 +26,7 @@
         	</div>
         	<div class="col-sm-10">
         		<!-- Main -->
-        		<h2 class="mt-3 fw-semibold">언어 리스트</h2>
+        		<h2 class="mt-3 fw-semibold">Language List</h2>
         		
         		<table class="table table-bordered mt-3">
         			<tr>
