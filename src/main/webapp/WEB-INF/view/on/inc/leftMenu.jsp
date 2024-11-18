@@ -31,7 +31,9 @@
                 	 -->
                     <a href="${pageContext.request.contextPath}/on/storeList" class="pb-3">Store 리스트</a>
                     <br>
-                    <a href="${pageContext.request.contextPath}/on/addStore">Store 추가</a>
+                    <a href="${pageContext.request.contextPath}/on/addStore" class="pb-3">Store 추가</a>
+                    <br>
+                    <a href="${pageContext.request.contextPath}/on/addInventory">Inventory 추가</a>
                     <!-- 
                     	Get - /on/addStore 
                     	- StoreController.addStore() : staffList 모델추가, search주소검색 결과 모델추가 -> addStore.jsp 

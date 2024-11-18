@@ -45,7 +45,7 @@ public class ActorController {
 	public String modifyActor(Actor actor) {
 		int row = actorService.modifyActor(actor);
 		
-		return "redirect:/on/actorOne?actorId=" +actor.getActorId();
+		return "redirect:/on/actorOne?actorId=" + actor.getActorId();
 	}
 	
 	@GetMapping("/on/modifyActor")

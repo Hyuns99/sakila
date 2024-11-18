@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Film {
-	private int filmId;
+	private Integer filmId;
 	private String title;
 	private String description; // 기본값 null
 	private Integer releaseYear; // 기본값 null

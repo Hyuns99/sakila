@@ -32,36 +32,20 @@
         			<tr>
         				<td>storeId</td>
         				<td>managerStaffId</td>
-        				<td>cityId</td>
         				<td>addressId</td>
-        				<td>address</td>
-        				<td>address2</td>
-        				<td>district</td>
-        				<td>postalCode</td>
-        				<td>phone</td>
-        				<td>firstName</td>
-        				<td>lastName</td>
-        				<td>email</td>
-        				<td>username</td>
         				<td>addressLastUpdate</td>
+        				<td>인벤토리 관리</td>
         				<td>삭제</td>
         			</tr>
         			<c:forEach var="s" items="${storeList }">
         				<tr>
         					<td>${s.storeId }</td>
-	        				<td>${s.managerStaffId }</td>
-	        				<td>${s.cityId }</td>
-	        				<td>${s.addressId }</td>
-	        				<td>${s.address }</td>
-	        				<td>${s.address2 }</td>
-	        				<td>${s.district }</td>
-	        				<td>${s.postalCode }</td>
-	        				<td>${s.phone }</td>
-	        				<td>${s.firstName }</td>
-	        				<td>${s.lastName }</td>
-	        				<td>${s.email }</td>
-	        				<td>${s.username }</td>
-	        				<td>${s.addressLastUpdate }</td>
+        					<td>${s.managerStaffId }</td>
+        					<td>${s.addressId }</td>
+        					<td>${s.lastUpdate }</td>
+        					<td>
+        						<a href="${pageContext.request.contextPath}/on/inventoryList?storeId=${s.storeId}" class="btn btn-outline-danger">인벤토리</a>
+        					</td>
 	        				<td>
 	        					<a href="" class="btn btn-danger">삭제</a>
 	        				</td>

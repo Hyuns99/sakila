@@ -9,6 +9,9 @@ import com.example.sakila.vo.FilmCategory;
 
 @Mapper
 public interface FilmCategoryMapper {
+	// filmOne에서 장르 삭제하는 메소드
+	Integer deleteFilmCategory(FilmCategory filmCategory);
+	
 	// filmOne에서 장르 추가하는 메소드
 	Integer insertFilmCategory(FilmCategory filmCategory);
 	

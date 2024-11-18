@@ -9,6 +9,8 @@ import com.example.sakila.vo.Actor;
 
 @Mapper
 public interface ActorMapper {
+	// filmOne에서 배우 검색할 때
+	List<Actor> selectActorListByActor(String searchName);
 	
 	// 삭제
 	int deleteActor(int actorId);
@@ -16,7 +18,7 @@ public interface ActorMapper {
 	// 수정
 	int updateActor(Actor actor);
 	
-	// filmOne
+	// filmOne에서 배우리스트 출력
 	List<Actor> selectActorListByFilm(int filmId);
 	
 	// actorOne

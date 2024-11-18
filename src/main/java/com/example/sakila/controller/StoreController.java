@@ -29,17 +29,12 @@ public class StoreController {
 	    // 필요한 시작 행 계산
 	    int beginRow = (currentPage - 1) * rowPerPage;
 	    
-	    // 페이징 정보 및 검색 조건을 포함한 파라미터 맵 생성
-	    Map<String, Object> map = new HashMap<>();
-	    map.put("beginRow", beginRow);
-	    map.put("rowPerPage", rowPerPage);
-	    
 	    Integer storeId = (Integer) session.getAttribute("storeId");
 	    
 	    log.debug("storeId : " + storeId);
 	    
 	    // 서비스 호출
-	    Map<String, Object> storeList = storeService.getStoreListByStaffByAddress(map);
+	    List<Store> storeList = storeService.getStoreList();
  
 	    // 모델에 데이터 추가
 	    model.addAttribute("storeList", storeList);

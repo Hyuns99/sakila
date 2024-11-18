@@ -30,6 +30,10 @@ public class ActorService {
 	@Autowired FilmMapper filmMapper;
 	@Autowired FilmActorMapper filmActorMapper;
 	
+	public List<Actor> getActorListByActor(String searchName) {
+		return actorMapper.selectActorListByActor(searchName);
+	}
+	
 	// /on/removeActor : 배우 삭제
 	public void removeActor(int actorId, String path) {
 		// 1) film_actor 삭제, 없다면 삭제 없음 

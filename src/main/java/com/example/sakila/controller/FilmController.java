@@ -169,6 +169,11 @@ public class FilmController {
 		List<Category> allCategoryList = categoryService.getCategoryList();
 		// 3)
 		List<Map<String, Object>> filmCategoryList = filmCategoryService.getFilmCategoryListByFilm(filmId);
+		// 4)
+		if(searchName != null) { // 배우 검색 버튼요청으로 왔다면 
+			List<Actor> searchActorList = actorService.getActorListByActor(searchName);
+			model.addAttribute("searchActorList",searchActorList); // 4
+		}
 		// 5)
 		List<Actor> actorList = actorService.getActorListByFilm(filmId);
 		

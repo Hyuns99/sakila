@@ -132,7 +132,7 @@
 
 					<!-- 영화 선택 -->
 					<form id="formAddFilm" class=" w-100"
-						action="${pageContext.request.contextPath }/on/addFilmByActor"
+						action="${pageContext.request.contextPath }/on/addFilmActorByActor"
 						method="post">
 						<input type="hidden" name="actorId" value="${actor.actorId }">
 						<select size="5" name="filmId" class="form-select w-100">
@@ -155,7 +155,7 @@
 							</td>
 							<td>
 								<!-- 삭제 시 f.filmId, actor.actorId 필요 --> <a
-								href="${pageContext.request.contextPath }/on/removeFilmActor?FilmId=${f.filmId}&actorId=${actor.actorId}"
+								href="${pageContext.request.contextPath }/on/removeFilmActorByActor?FilmId=${f.filmId}&actorId=${actor.actorId}"
 								class="btn btn-danger"> 삭제 </a>
 							</td>
 						</tr>
