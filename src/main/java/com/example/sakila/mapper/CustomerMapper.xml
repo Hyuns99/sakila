@@ -4,7 +4,7 @@
 	<select id="selectCustomerCount" resultType="Integer">
 		SELECT COUNT(*) FROM customer
 	</select>
-	<select id="selectCustomerList" parameterType="Map" resultType="com.example.sakila.vo.Customer">
+	<select id="selectCustomerList" resultType="com.example.sakila.vo.Customer">
 		SELECT 
 			customer_id customerId
 			, store_id storeId

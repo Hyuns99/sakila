@@ -77,15 +77,16 @@
         		<!-- 페이지네이션 -->
         		<nav aria-label="Page navigation example">
 				    <ul class="pagination justify-content-center">
-				    	<li class="page-item">
-					        <a class="page-link" href="${pageContext.request.contextPath}/on/filmList?currentPage=1">
+						<!-- category 선택 시 /on/filmList?categoryId=4 -->
+						<li class="page-item">
+					        <a class="page-link" href="${pageContext.request.contextPath}/on/filmList?categoryId=${currentCategoryId }&currentPage=1">
 					            <span aria-hidden="true">&laquo;</span>
 					        </a>
 					    </li>
 				        <!-- Previous Button -->
 				        <c:if test="${currentPage > 1}">
 						    <li class="page-item">
-						        <a class="page-link" href="${pageContext.request.contextPath}/on/filmList?currentPage=${currentPage - 1}&rowPerPage=${rowPerPage}" aria-label="Previous">
+						        <a class="page-link" href="${pageContext.request.contextPath}/on/filmList?categoryId=${currentCategoryId }&currentPage=${currentPage - 1}" aria-label="Previous">
 						            <span aria-hidden="true">이전</span>
 						        </a>
 						    </li>
@@ -94,7 +95,7 @@
 				        <!-- Page Numbers -->
 				        <c:forEach var="page" begin="${startPage}" end="${endPage}">
 						    <li class="page-item ${page == currentPage ? 'active' : ''}">
-						        <a class="page-link" href="${pageContext.request.contextPath}/on/filmList?currentPage=${page}&rowPerPage=${rowPerPage}">
+						        <a class="page-link" href="${pageContext.request.contextPath}/on/filmList?categoryId=${currentCategoryId }&currentPage=${page}">
 						            ${page}
 						        </a>
 						    </li>
@@ -103,13 +104,13 @@
 				        <!-- Next Button -->
 				        <c:if test="${currentPage < lastPage}">
 						    <li class="page-item">
-						        <a class="page-link" href="${pageContext.request.contextPath}/on/filmList?currentPage=${currentPage + 1}&rowPerPage=${rowPerPage}" aria-label="Next">
+						        <a class="page-link" href="${pageContext.request.contextPath}/on/filmList?categoryId=${currentCategoryId }&currentPage=${currentPage + 1}" aria-label="Next">
 						            <span aria-hidden="true">다음</span>
 						        </a>
 						    </li>
 						</c:if>
 						<li class="page-item">
-							<a class="page-link" href="${pageContext.request.contextPath}/on/filmList?currentPage=${lastPage}">
+							<a class="page-link" href="${pageContext.request.contextPath}/on/filmList?categoryId=${currentCategoryId }&currentPage=${lastPage}">
 						        <span aria-hidden="true">&raquo;</span>
 						    </a>
 						</li>

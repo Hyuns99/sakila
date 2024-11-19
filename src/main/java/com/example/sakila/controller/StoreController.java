@@ -43,6 +43,7 @@ public class StoreController {
 	    
 	    // 페이징을 위해 필요한 현재 페이지와 행 개수 추가
 	    model.addAttribute("currentPage", currentPage);
+	    model.addAttribute("beginRow", beginRow);
 	    model.addAttribute("rowPerPage", rowPerPage);
 		
 		

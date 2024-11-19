@@ -1,7 +1,6 @@
 package com.example.sakila.mapper;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,5 +15,5 @@ public interface CategoryMapper {
 	int selectCategoryCount();
 	
 	// categoryList
-	List<Category> selectCategoryList(Map<String, Object> paramMap);
+	List<Category> selectCategoryList();
 }
