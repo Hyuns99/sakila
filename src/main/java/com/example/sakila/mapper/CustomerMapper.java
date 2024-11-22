@@ -9,8 +9,10 @@ import com.example.sakila.vo.Customer;
 
 @Mapper
 public interface CustomerMapper {
-	// customerList - lastpage
 	Integer selectCustomerCount();
+	
+	// /on/addRental
+	List<Customer> selectCustomerListByName(String searchName);
 	
 	List<Customer> selectCustomerList(Map<String, Object> paramMap);
 	

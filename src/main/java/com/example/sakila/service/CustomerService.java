@@ -16,6 +16,10 @@ import com.example.sakila.vo.Customer;
 public class CustomerService {
 	@Autowired CustomerMapper customerMapper;
 	
+	public List<Customer> getCustomerListByName(String searchName) {
+		return customerMapper.selectCustomerListByName(searchName);
+	}
+	
 	public Integer getLastPage(Integer rowPerPage) {
 		int count = customerMapper.selectCustomerCount();
 		int lastPage = count / rowPerPage;

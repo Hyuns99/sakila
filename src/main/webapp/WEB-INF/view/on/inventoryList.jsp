@@ -34,10 +34,12 @@
         		</form>
         		<table class="table table-bordered mt-3">
         			<tr>
-        				<td class="fw-semibold">inventoryId</td>
-        				<td class="fw-semibold">(filmId)title</td>
-        				<td class="fw-semibold">lastUpdate</td>
-        				<td>삭제</td>
+        				<td>inventoryId</td>
+						<td>(filmId)title</td>
+						<td>lastUpdate</td>
+						<td>대여</td>
+						<td>customerId</td>
+						<td>삭제</td>
         			</tr>
         			<c:forEach var="iv" items="${inventoryList }">
         				<tr>
@@ -48,12 +50,24 @@
         						</a>
         					</td>
         					<td>${iv.lastUpdate }</td>
-        					<td>
-	        					<a href="${pageContext.request.contextPath}/on/removeInventoryByKey?inventoryId=${iv.inventoryId}&storeId=${storeId}" 
-	        						class="btn btn-danger">
-	        						삭제
-	        					</a>
-	        				</td>
+        					<td><!-- 대여중인 상태면 고객ID, 대여가능이면 addRental링크 -->
+							<c:if test="${iv.customerId != null}">
+								<a href="${pageContext.request.contextPath}/on/customerOne?customerId=${iv.customerId}">
+									${iv.customerId}
+								</a>
+							</c:if>
+							<c:if test="${iv.customerId == null}">
+								<a href="${pageContext.request.contextPath}/on/addRental?inventoryId=${iv.inventoryId}" 
+									class="btn btn-primary">
+									대여
+								</a>
+							</c:if>
+							</td>
+							<td>
+								<a href="${pageContext.request.contextPath}/on/removeInventoryByKey?inventoryId=${iv.inventoryId}&storeId=${storeId}">
+									삭제
+								</a>
+							</td>
         				</tr>
         			</c:forEach>
         		</table>

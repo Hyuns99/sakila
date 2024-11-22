@@ -114,6 +114,7 @@ public class FilmController {
 		// 페이지네이션
 		int lastPage = filmService.getFilmListByLastPage(categoryId, rowPerPage);
 		int pageSize = 5; // 한 페이지에 표시할 페이지 번호 수
+		
 		int startPage = Math.max(1, currentPage - pageSize / 2); // 시작 페이지 계산
 		int endPage = Math.min(lastPage, startPage + pageSize - 1); // 끝 페이지 계산
 
