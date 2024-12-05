@@ -9,6 +9,9 @@ import com.example.sakila.vo.Store;
 
 @Mapper
 public interface StoreMapper {
+	// addStore
+	Integer insertStore(Store store);
+	
 	// storeList 출력
 	Map<String, Object> selectStoreListByStaffByAddress(Map<String, Object> map);
 	

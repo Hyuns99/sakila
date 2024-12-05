@@ -8,9 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.sakila.service.AddressService;
+import com.example.sakila.service.StaffService;
 import com.example.sakila.service.StoreService;
+import com.example.sakila.vo.Address;
+import com.example.sakila.vo.Staff;
 import com.example.sakila.vo.Store;
 
 import jakarta.servlet.http.HttpSession;
@@ -20,6 +25,43 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class StoreController {
 	@Autowired StoreService storeService;
+	@Autowired StaffService staffService;	
+	@Autowired AddressService addressService;	
+	
+	// addStore
+	@PostMapping("/on/addStore")
+	public String insertStore(Model model
+								, @RequestParam Integer managerStaffId
+								, @RequestParam Integer addressId
+								, @RequestParam(defaultValue = "") String searchAddress) {
+		
+		Store store = new Store();
+		store.setManagerStaffId(managerStaffId);
+		store.setAddressId(addressId);
+		
+		int row = storeService.insertStore(store);
+		
+		if(row == 0) {
+			return "on/addStore";
+		}
+		
+		return "redirect:/on/storeList";
+	}
+	@GetMapping("/on/addStore") 
+	public String insertStore1(Model model
+								, @RequestParam(defaultValue = "") String searchAddress) {
+		
+	    List<Store> staffList = storeService.getStoreList();
+	    List<Address> addressList = addressService.getAddressListByWord(searchAddress);
+	    
+	    model.addAttribute("staffList",staffList);
+	    model.addAttribute("addressList",addressList);
+	    
+	    log.debug("staffList : " + staffList);
+	    log.debug("addressList : " + addressList);
+		
+		return "on/addStore";
+	}
 	
 	@GetMapping("/on/storeList")
 	public String selectStoreList(Model model

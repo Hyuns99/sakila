@@ -1,43 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.sakila.mapper.StoreMapper">
-	<insert id="">
-		INSERT INTO store_list (
-		    address_id, address, address2, district, city_id, postal_code, 
-		    phone, address_last_update, store_id, manager_staff_id, 
-		    first_name, last_name, email, active, username
-		)
-		SELECT 
-		    a.address_id, 
-		    a.address, 
-		    a.address2, 
-		    a.district, 
-		    a.city_id, 
-		    a.postal_code, 
-		    a.phone, 
-		    a.last_update, 
-		    t1.store_id, 
-		    t1.manager_staff_id, 
-		    t1.first_name, 
-		    t1.last_name, 
-		    t1.email, 
-		    t1.active, 
-		    t1.username
-		FROM address a 
-		INNER JOIN (
-		    SELECT 
-		        st.store_id, 
-		        st.manager_staff_id, 
-		        st.address_id AS store_address_id, 
-		        sf.first_name, 
-		        sf.last_name, 
-		        sf.email, 
-		        sf.active, 
-		        sf.username
-		    FROM store st 
-		    INNER JOIN staff sf ON st.store_id = sf.store_id
-		) t1 ON a.address_id = t1.store_address_id
-		WHERE t1.store_id = #{storeId}
+	<insert id="insertStore" parameterType="com.example.sakila.vo.Store">
+		INSERT INTO store (
+		    manager_staff_id, address_id
+		) VALUES ( #{managerStaffId}, #{addressId})
 	</insert>
 	
 		<!-- storeList 출력 -->
@@ -79,6 +46,11 @@
 
 	<!-- staffList 출력 -->
 	<select id="selectStoreList" parameterType="com.example.sakila.vo.Store">
-		SELECT store_id storeId FROM store
+		SELECT 
+			store_id storeId 
+			, manager_staff_id managerStaffId
+			, address_id addressId
+			, last_update lastUpdate
+		FROM store
 	</select>
 </mapper>

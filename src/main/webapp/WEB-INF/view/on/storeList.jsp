@@ -33,7 +33,7 @@
         				<td>storeId</td>
         				<td>managerStaffId</td>
         				<td>addressId</td>
-        				<td>addressLastUpdate</td>
+        				<td>lastUpdate</td>
         				<td>Inventory List</td>
         				<td>Inventory 추가</td>
         				

@@ -48,8 +48,20 @@
 
 	<insert id="insertStaff" parameterType="com.example.sakila.vo.Staff">
 		INSERT INTO staff (
-			first_name, last_name, address_id, email, store_id, userName
-		) VALUES (#{firstName},#{lastName},#{addressId},#{email},#{storeId},#{userName} )
+			first_name
+			, last_name
+			, address_id
+			, email
+			, store_id
+			, userName
+		) VALUES (
+			#{firstName}
+			,#{lastName}
+			,#{addressId}
+			,#{email}
+			,#{storeId}
+			,#{userName} 
+		)
 	</insert>
 	<!-- staffOne/ 회원정보 -->
    <select id="selectStaffOne" parameterType="int"

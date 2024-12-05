@@ -27,7 +27,28 @@
         	<div class="col-sm-10">
         		<!-- Main -->
         		<h2 class="mt-3 fw-semibold">Store 추가</h2>
+        		<form action="${pageContext.request.contextPath}/on/addStore" method="post">
+	        		<input type="hidden" value="${storeId }" name="storeId">
+	        		<select name="managerStaffId" id="managerStaffId">
+	        			<c:forEach items="${staffList }" var="s">
+		        			<option value="${s.managerStaffId }">${s.managerStaffId }</option>		        			
+	        			</c:forEach>
+	        		</select>	 
+	        		<select name="addressId" id="addressId">
+	        			<c:forEach items="${addressList }" var="a">
+		        			<option value="${a.addressId }">${a.address}</option>		        			
+	        			</c:forEach>
+	        		</select>
+					<button class="btn btn-warning mt-3">추가</button>
+        		</form>
         	</div>
         </div>
     </body>
 </html>
+
+
+
+
+
+
+

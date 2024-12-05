@@ -31,7 +31,7 @@
         			<input type="hidden" name="inventoryId" value="${inventoryId}">
 					이름 검색 :
 					<input type="text" name="searchName" id="searchName">
-					<button type="button" id="btnSearchName">이름검색</button>
+					<button type="button" id="btnSearchName" class="btn btn-warning">이름검색</button>
         		</form>
         		
         		<form id="formAddRental"
@@ -77,7 +77,7 @@
 							</td>
 						</tr>
 					</table>
-					<button type="button" id="btnAddRental">대여</button>
+					<button type="button" id="btnAddRental" class="btn btn-warning">대여</button>
 				</form>
         	</div>
         </div>

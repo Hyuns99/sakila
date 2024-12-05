@@ -64,7 +64,8 @@
 							</c:if>
 							</td>
 							<td>
-								<a href="${pageContext.request.contextPath}/on/removeInventoryByKey?inventoryId=${iv.inventoryId}&storeId=${storeId}">
+								<a class="btn btn-danger" 
+									href="${pageContext.request.contextPath}/on/removeInventoryByKey?inventoryId=${iv.inventoryId}&storeId=${storeId}">
 									삭제
 								</a>
 							</td>

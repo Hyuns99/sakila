@@ -29,7 +29,7 @@ public class StaffService {
 		return lastPage;
 	}
 	
-	public List<Staff> getStaffList(Map paraMap) {
+	public List<Staff> getStaffList(Map<String, Object> paraMap) {
 		return staffMapper.selectStaffList(paraMap);
 	}
 	
