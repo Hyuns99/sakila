@@ -24,13 +24,18 @@ public class InventoryService {
 		return inventoryMapper.insertInventory(inventory);
 	}
 	
-	public Integer getInventoryCount(Integer rowPerPage) {
+	public Integer getInventoryCount(Integer storeId ) {
 		// 페이지네이션
+		Integer rowPerPage = 10;
 		Integer count =  inventoryMapper.selectInventoryCount();
 		Integer lastPage = count / rowPerPage;
-		if(lastPage % count != 0) {
-			lastPage++;
-		}
+	    if (count == 0) {
+	        return 1;  // If no records, set last page to 1 (or whatever is appropriate)
+	    }
+	    
+	    if (count % rowPerPage != 0) {
+	        lastPage++;
+	    }
 			
 		return lastPage;
 	}

@@ -16,17 +16,10 @@
 
 	<!-- 페이지네이션 -->
 	<select id="selectInventoryCount" parameterType="com.example.sakila.vo.Inventory">
-		SELECT
-			COUNT(*)
+		SELECT film_id, COUNT(*) 
 		FROM inventory
-		<where>
-	        <if test="storeId != null">
-	            store_id = #{storeId}
-	        </if>
-	        <if test="filmId != null">
-	            AND film_id = #{filmId}
-	        </if>
-    	</where>
+		WHERE store_id = #{storeId}
+		GROUP BY film_id;
 	</select>
 
 	<!-- on/inventoryList -->

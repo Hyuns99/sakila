@@ -63,9 +63,9 @@ public class InventoryController {
 		
 		// 페이지네이션
 		Integer pageSize = 5;
-		Integer lastPage = inventoryService.getInventoryCount(rowPerPage);
-		Integer startPage = Math.max(1, currentPage - pageSize / 2);
-		Integer endPage = Math.min(lastPage, startPage + pageSize - 1); 
+		Integer lastPage = inventoryService.getInventoryCount(storeId);
+		Integer startPage = ((currentPage - 1) / pageSize) * pageSize + 1;
+		Integer endPage = Math.min(startPage + pageSize - 1, lastPage);
 
 		// 페이지 범위가 부족할 경우 보정
 		if (endPage - startPage < pageSize - 1) {

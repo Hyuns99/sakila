@@ -38,7 +38,6 @@
 						<td>(filmId)title</td>
 						<td>lastUpdate</td>
 						<td>대여</td>
-						<td>customerId</td>
 						<td>삭제</td>
         			</tr>
         			<c:forEach var="iv" items="${inventoryList }">
@@ -51,11 +50,6 @@
         					</td>
         					<td>${iv.lastUpdate }</td>
         					<td><!-- 대여중인 상태면 고객ID, 대여가능이면 addRental링크 -->
-							<c:if test="${iv.customerId != null}">
-								<a href="${pageContext.request.contextPath}/on/customerOne?customerId=${iv.customerId}">
-									${iv.customerId}
-								</a>
-							</c:if>
 							<c:if test="${iv.customerId == null}">
 								<a href="${pageContext.request.contextPath}/on/addRental?inventoryId=${iv.inventoryId}" 
 									class="btn btn-primary">
