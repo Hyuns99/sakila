@@ -32,6 +32,14 @@ public class ActorController {
 	@Autowired ActorFileService actorFileService;
 	@Autowired FilmService filmService;
 	
+	@GetMapping("/actorList")
+	public String actorList(Model model, 
+							@RequestParam(defaultValue = "1") Integer currentPage) {
+		model.addAttribute("list", actorService.getActorList2(currentPage));
+		model.addAttribute("currentPage", currentPage);
+		return "actorList";
+	}
+	
 	@GetMapping("/on/removeActor")
 	public String removeActor(HttpSession session
 							,@RequestParam int actorId) {

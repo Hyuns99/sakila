@@ -79,7 +79,6 @@ public class FilmController {
 			
 			//return "redirect:/on/filmOne"; // 메세지 추가는 힘들다
 		}
-		// 1) 
 
 		filmService.removeFilmByKey(filmId);
 		

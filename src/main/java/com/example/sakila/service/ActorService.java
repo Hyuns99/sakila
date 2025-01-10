@@ -30,6 +30,16 @@ public class ActorService {
 	@Autowired FilmMapper filmMapper;
 	@Autowired FilmActorMapper filmActorMapper;
 	
+	private final int ROW_PER_PAGE = 10;
+	//20241217
+	public List<Map<String, Object>> getActorList2(Integer currentPage) {
+		int beginRow = (currentPage - 1) * ROW_PER_PAGE;
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("beginRow", beginRow);
+		paramMap.put("rowPerPage", ROW_PER_PAGE);
+		return actorMapper.selectActorList2(paramMap);
+	}
+	
 	public List<Actor> getActorListByActor(String searchName) {
 		return actorMapper.selectActorListByActor(searchName);
 	}

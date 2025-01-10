@@ -9,6 +9,10 @@ import com.example.sakila.vo.Actor;
 
 @Mapper
 public interface ActorMapper {
+	// 20241217
+	List<Map<String, Object>> selectActorList2(Map<String, Object> paramMap);
+	
+	
 	// filmOne에서 배우 검색할 때
 	List<Actor> selectActorListByActor(String searchName);
 	
